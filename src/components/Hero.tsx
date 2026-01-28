@@ -10,6 +10,13 @@ export default function Hero() {
   const yText = useTransform(scrollY, [0, 500], [0, 200]);
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
+  const scrollToCalendar = () => {
+    const calendarSection = document.getElementById('calendar');
+    if (calendarSection) {
+      calendarSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-primary-canvas">
       {/* Background Decorative Elements */}
@@ -19,6 +26,7 @@ export default function Hero() {
 
         {/* Animated Mandala with Morphing */}
         <motion.svg
+          aria-hidden="true"
           viewBox="0 0 100 100"
           className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 opacity-20 text-typography-gold"
           animate={{ rotate: 360 }}
@@ -81,14 +89,16 @@ export default function Hero() {
         </p>
       </motion.div>
 
-       <motion.div
-        className="absolute bottom-12 text-typography-gold/80 cursor-pointer"
+       <motion.button
+        className="absolute bottom-12 text-typography-gold/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-gold rounded-full p-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 2, duration: 2, repeat: Infinity }}
+        onClick={scrollToCalendar}
+        aria-label="Scroll to calendar"
       >
         <ChevronDown size={32} />
-      </motion.div>
+      </motion.button>
     </section>
   );
 }
