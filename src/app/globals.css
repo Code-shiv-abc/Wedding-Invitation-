@@ -2,11 +2,14 @@
 
 @theme {
   --color-primary-canvas: #022C22;
-  --color-typography-gold: #F4CF57;
+  --color-typography-gold: #D4AF37;
   --color-secondary-ivory: #FDFCF0;
 
   --font-cinzel: var(--font-cinzel);
   --font-montserrat: var(--font-montserrat);
+
+  --font-serif: var(--font-cinzel);
+  --font-sans: var(--font-montserrat);
 }
 
 body {

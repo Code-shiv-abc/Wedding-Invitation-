@@ -1,10 +1,14 @@
 'use client';
 import { MapPin, MessageCircle } from 'lucide-react';
 import { triggerHaptic } from '@/utils/interactions';
+import { useGuestRecognition } from '@/utils/guest';
 
 export default function LogisticsSection() {
-    const mapLink = "https://www.google.com/maps/search/?api=1&query=The+Grand+Venue,+India";
-    const whatsappLink = "https://wa.me/?text=Excited+for+the+wedding+of+Himanshu+and+Anjali!";
+    const guestName = useGuestRecognition();
+    const mapLink = "https://www.google.com/maps/search/?api=1&query=Royal+Palace,+Jaipur";
+
+    const message = `Namaste, this is ${guestName}. I am excited for the wedding of Himanshu and Anjali!`;
+    const whatsappLink = `https://wa.me/?text=${encodeURIComponent(message)}`;
 
     return (
         <section className="py-24 bg-secondary-ivory text-primary-canvas px-4">
@@ -13,8 +17,8 @@ export default function LogisticsSection() {
                     <MapPin className="w-12 h-12 mx-auto text-primary-canvas" />
                     <h3 className="text-2xl font-serif text-primary-canvas">The Venue</h3>
                     <p className="font-sans text-lg">
-                        The Grand Venue<br/>
-                        New Delhi, India
+                        Royal Palace<br/>
+                        Jaipur, India
                     </p>
                     <a
                         href={mapLink}

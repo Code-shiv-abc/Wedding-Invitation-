@@ -1,9 +1,9 @@
 export const WEDDING_DETAILS = {
   title: "The Eternal Union: Himanshu & Anjali",
   description: "We cordially invite you to celebrate the wedding of Himanshu & Anjali. Your presence will add to our joy.",
-  location: "The Grand Venue, India",
-  startTime: "20260426T110000Z", // UTC time, assumption
-  endTime: "20260426T150000Z",
+  location: "Royal Palace, Jaipur",
+  startTime: "20260426T100000",
+  endTime: "20260426T140000",
 };
 
 export function generateICS() {
