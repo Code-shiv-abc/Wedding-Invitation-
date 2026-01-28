@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Montserrat } from "next/font/google";
+import { Cinzel_Decorative, Montserrat, Tiro_Devanagari_Hindi } from "next/font/google";
 import "./globals.css";
+import BackgroundAnimation from "@/components/BackgroundAnimation";
 
 const cinzel = Cinzel_Decorative({
   weight: ["400", "700", "900"],
@@ -11,6 +12,12 @@ const cinzel = Cinzel_Decorative({
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+});
+
+const tiro = Tiro_Devanagari_Hindi({
+  weight: ["400"],
+  subsets: ["devanagari"],
+  variable: "--font-tiro",
 });
 
 export const metadata: Metadata = {
@@ -26,8 +33,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cinzel.variable} ${montserrat.variable} antialiased`}
+        className={`${cinzel.variable} ${montserrat.variable} ${tiro.variable} antialiased`}
       >
+        <BackgroundAnimation />
         {children}
       </body>
     </html>
