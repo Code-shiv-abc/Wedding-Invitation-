@@ -11,37 +11,11 @@ export default function Hero() {
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-primary-canvas">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-transparent">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-typography-gold opacity-10 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-typography-gold opacity-10 rounded-full blur-3xl translate-x-[50%] translate-y-[50%]" />
-
-        {/* Animated Mandala with Morphing */}
-        <motion.svg
-          viewBox="0 0 100 100"
-          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 opacity-20 text-typography-gold"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-        >
-           <motion.path
-             d="M50 5 L65 35 L95 50 L65 65 L50 95 L35 65 L5 50 L35 35 Z"
-             fill="none"
-             stroke="currentColor"
-             strokeWidth="0.2"
-             initial={{ pathLength: 0 }}
-             animate={{
-               pathLength: 1,
-               d: "M50 0 L85 15 L100 50 L85 85 L50 100 L15 85 L0 50 L15 15 Z"
-             }}
-             transition={{
-               pathLength: { duration: 3, ease: "easeInOut" },
-               d: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
-             }}
-           />
-           <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="0.1" fill="none" />
-           <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="0.1" fill="none" />
-        </motion.svg>
       </div>
 
       <motion.div
