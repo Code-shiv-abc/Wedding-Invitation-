@@ -10,7 +10,9 @@ export default function Home() {
         <Hero />
       </Suspense>
       <CalendarSection />
-      <LogisticsSection />
+      <Suspense fallback={null}>
+        <LogisticsSection />
+      </Suspense>
 
       <footer className="py-8 text-center text-secondary-ivory/50 text-xs tracking-widest uppercase font-sans">
         © 2026 The Eternal Union. Designed with Love.
