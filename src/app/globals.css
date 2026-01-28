@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-canvas: #022C22;
-  --color-typography-gold: #D4AF37;
-  --color-secondary-ivory: #FDFCF0;
+  --color-primary-canvas: #0E2F26;
+  --color-secondary-canvas: #101A17;
+  --color-typography-gold: #C6A75E;
+  --color-typography-gold-soft: rgba(198,167,94,0.15);
+  --color-secondary-ivory: #F4F1EC;
+  --color-text-muted: rgba(244,241,236,0.6);
 
   --font-cinzel: var(--font-cinzel);
   --font-montserrat: var(--font-montserrat);
   --font-tiro: var(--font-tiro);
+  --font-playfair: var(--font-playfair);
+  --font-cormorant: var(--font-cormorant);
+  --font-inter: var(--font-inter);
 
-  --font-serif: var(--font-cinzel);
-  --font-sans: var(--font-montserrat);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background-color: var(--color-primary-canvas);
   color: var(--color-secondary-ivory);
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-playfair), serif;
   color: var(--color-typography-gold);
 }

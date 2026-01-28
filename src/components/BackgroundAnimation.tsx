@@ -50,10 +50,10 @@ export default function BackgroundAnimation() {
   if (shouldReduceMotion) {
     return (
       <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-primary-canvas">
-        <div className="absolute top-10 left-10 w-96 h-96 text-typography-gold opacity-[0.02]">
+        <div className="absolute top-10 left-10 w-96 h-96 text-typography-gold opacity-[0.03]">
           <Mandala className="w-full h-full" />
         </div>
-        <div className="absolute bottom-10 right-10 w-64 h-64 text-typography-gold opacity-[0.02]">
+        <div className="absolute bottom-10 right-10 w-64 h-64 text-typography-gold opacity-[0.03]">
           <Swastika className="w-full h-full" />
         </div>
       </div>
@@ -64,7 +64,7 @@ export default function BackgroundAnimation() {
     <div ref={containerRef} className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-primary-canvas">
       {/* Gentle Rotation & Parallax - Top Left */}
       <motion.div
-        className="absolute -top-20 -left-20 w-[500px] h-[500px] text-typography-gold opacity-[0.02]"
+        className="absolute -top-20 -left-20 w-[500px] h-[500px] text-typography-gold opacity-[0.03]"
         style={{ y: y1, rotate: rotate1 }}
         animate={{ rotate: 360 }}
         transition={spinTransition}
@@ -74,9 +74,9 @@ export default function BackgroundAnimation() {
 
       {/* Subtle Pulsing - Center Right */}
       <motion.div
-        className="absolute top-1/3 -right-32 w-[600px] h-[600px] text-typography-gold opacity-[0.02]"
+        className="absolute top-1/3 -right-32 w-[600px] h-[600px] text-typography-gold opacity-[0.03]"
         style={{ y: y2 }}
-        animate={{ scale: [1, 1.05, 1], opacity: [0.02, 0.03, 0.02] }}
+        animate={{ scale: [1, 1.05, 1], opacity: [0.03, 0.04, 0.03] }}
         transition={pulseTransition}
       >
         <Mandala className="w-full h-full" />
@@ -84,7 +84,7 @@ export default function BackgroundAnimation() {
 
       {/* Counter Rotation - Bottom Left */}
       <motion.div
-        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] text-typography-gold opacity-[0.02]"
+        className="absolute -bottom-32 -left-32 w-[400px] h-[400px] text-typography-gold opacity-[0.03]"
         style={{ y: y1, rotate: rotate2 }}
         animate={{ rotate: -360 }}
         transition={spinTransition}
@@ -94,7 +94,7 @@ export default function BackgroundAnimation() {
 
        {/* Floating - Bottom Right */}
       <motion.div
-         className="absolute bottom-20 right-20 w-[300px] h-[300px] text-typography-gold opacity-[0.02]"
+         className="absolute bottom-20 right-20 w-[300px] h-[300px] text-typography-gold opacity-[0.03]"
          style={{ y: y2 }}
          animate={{ y: [0, -20, 0] }}
          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
