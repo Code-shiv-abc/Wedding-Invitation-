@@ -11,7 +11,7 @@ export default function Hero() {
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-primary-canvas">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-transparent">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-typography-gold opacity-10 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />

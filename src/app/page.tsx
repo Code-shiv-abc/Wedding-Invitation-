@@ -7,7 +7,7 @@ import EventTimeline from '@/components/EventTimeline';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-primary-canvas relative z-0">
+    <main className="min-h-screen bg-transparent relative z-0">
       <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-typography-gold font-serif">Loading Invitation...</div>}>
         <Hero />
       </Suspense>

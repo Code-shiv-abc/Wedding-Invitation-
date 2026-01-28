@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel_Decorative, Montserrat, Tiro_Devanagari_Hindi } from "next/font/google";
 import "./globals.css";
 import BackgroundAnimation from "@/components/BackgroundAnimation";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const cinzel = Cinzel_Decorative({
   weight: ["400", "700", "900"],
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${cinzel.variable} ${montserrat.variable} ${tiro.variable} antialiased`}
       >
         <BackgroundAnimation />
+        <MusicPlayer />
         {children}
       </body>
     </html>
