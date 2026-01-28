@@ -109,19 +109,22 @@ function CeremonySection({ ceremony, index }: { ceremony: Ceremony; index: numbe
 
           {/* Content */}
           <motion.div
-            className="flex-1 text-center md:text-left space-y-6"
+            className="flex-1 text-center md:text-left space-y-6 p-8 rounded-2xl border border-secondary-ivory/10 backdrop-blur-md bg-primary-canvas/30 shadow-2xl relative overflow-hidden"
             style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]), opacity }}
           >
+            {/* Subtle gloss effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+
             <h3
-              className="text-4xl md:text-6xl font-serif font-bold"
+              className="text-4xl md:text-6xl font-serif font-bold relative z-10"
               style={{ color: ceremony.theme_color }}
             >
               {ceremony.title}
             </h3>
-            <p className="text-xl md:text-2xl text-secondary-ivory/90 font-sans tracking-wide">
+            <p className="text-xl md:text-2xl text-secondary-ivory/90 font-sans tracking-wide relative z-10">
               {ceremony.time}
             </p>
-            <p className="text-lg text-secondary-ivory/70 leading-relaxed font-sans max-w-lg mx-auto md:mx-0">
+            <p className="text-lg text-secondary-ivory/70 leading-relaxed font-sans max-w-lg mx-auto md:mx-0 relative z-10">
               {ceremony.description}
             </p>
           </motion.div>
