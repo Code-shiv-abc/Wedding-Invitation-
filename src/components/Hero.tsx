@@ -10,6 +10,13 @@ export default function Hero() {
   const yText = useTransform(scrollY, [0, 500], [0, 200]);
   const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
 
+  const scrollToCalendar = () => {
+    const calendarSection = document.getElementById('calendar');
+    if (calendarSection) {
+      calendarSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-transparent">
       {/* Background Decorative Elements */}
@@ -60,6 +67,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 2, duration: 2, repeat: Infinity }}
+        onClick={scrollToCalendar}
       >
         <ChevronDown size={32} />
       </motion.div>
