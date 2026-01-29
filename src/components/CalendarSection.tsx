@@ -19,7 +19,6 @@ export default function CalendarSection() {
 
   return (
     <section id="calendar" className="py-24 bg-primary-canvas text-center px-4 relative">
-       <div className="absolute inset-0 bg-secondary-ivory opacity-5 pointer-events-none" />
       <h2 className="text-3xl md:text-5xl text-typography-gold font-serif mb-12">Save the Date</h2>
       <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
         <button
