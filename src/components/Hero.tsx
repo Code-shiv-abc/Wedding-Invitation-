@@ -18,17 +18,17 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-primary-canvas">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-primary-canvas to-[#123E36]">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-typography-gold opacity-10 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-typography-gold opacity-10 rounded-full blur-3xl translate-x-[50%] translate-y-[50%]" />
+        <div className="absolute top-0 left-0 w-64 h-64 bg-typography-sacred opacity-5 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-typography-sacred opacity-5 rounded-full blur-3xl translate-x-[50%] translate-y-[50%]" />
 
         {/* Animated Mandala with Morphing */}
         <motion.svg
           aria-hidden="true"
           viewBox="0 0 100 100"
-          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 opacity-20 text-typography-gold"
+          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 opacity-10 text-typography-sacred"
           animate={{ rotate: 360 }}
           transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
         >
@@ -60,7 +60,7 @@ export default function Hero() {
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
         <motion.h2
-          className="text-lg md:text-xl tracking-[0.3em] uppercase text-secondary-ivory/80 font-light"
+          className="text-lg md:text-xl tracking-[0.3em] uppercase text-typography-muted font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -68,11 +68,11 @@ export default function Hero() {
           The Wedding Celebration of
         </motion.h2>
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-typography-gold drop-shadow-2xl font-serif">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-typography-sacred drop-shadow-2xl font-serif">
           Himanshu <br className="md:hidden" /> <span className="text-4xl md:text-6xl align-middle">&</span> Anjali
         </h1>
 
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-typography-gold to-transparent mx-auto my-6" />
+        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-accent-divider to-transparent mx-auto my-6" />
 
         <motion.div
             initial={{ opacity: 0 }}
@@ -84,13 +84,13 @@ export default function Hero() {
             </p>
         </motion.div>
 
-        <p className="text-sm md:text-lg mt-8 tracking-[0.2em] font-sans text-secondary-ivory/70 uppercase">
+        <p className="text-sm md:text-lg mt-8 tracking-[0.2em] font-sans text-secondary-ivory uppercase">
           Sunday, April 26th, 2026
         </p>
       </motion.div>
 
        <motion.button
-        className="absolute bottom-12 text-typography-gold/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-gold rounded-full p-2"
+        className="absolute bottom-12 text-typography-sacred/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-sacred rounded-full p-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 2, duration: 2, repeat: Infinity }}

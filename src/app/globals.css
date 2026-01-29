@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-canvas: #022C22;
+  --color-primary-canvas: #0E2F2A;
+  --color-secondary-ivory: #F3EFE6;
   --color-typography-gold: #D4AF37;
-  --color-secondary-ivory: #FDFCF0;
+
+  --color-secondary-surface: #13453B;
+  --color-typography-sacred: #E6C97A;
+  --color-typography-muted: #C9D6CF;
+
+  --color-accent-divider: #C9A24D;
+  --color-accent-icon: #7FAF8A;
 
   --font-cinzel: var(--font-cinzel);
   --font-montserrat: var(--font-montserrat);
