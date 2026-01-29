@@ -59,6 +59,16 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
+        <motion.div
+          className="sacred-calligraphy text-typography-sacred text-base md:text-lg text-center mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1 }}
+        >
+          ॥ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ॥<br/>
+          ॥ निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+        </motion.div>
+
         <motion.h2
           className="text-lg md:text-xl tracking-[0.3em] uppercase text-typography-muted font-light"
           initial={{ opacity: 0, y: 20 }}
