@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Montserrat } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
-const cinzel = Cinzel_Decorative({
-  weight: ["400", "700", "900"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const montserrat = Montserrat({
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-poppins",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "The Eternal Union: Himanshu & Anjali",
-  description: "World-Class Luxury Digital Wedding Invitation",
+  title: "AumLab | Senior Frontend Engineer & UX/UI Lead",
+  description: "World-class professional portfolio of a Senior Frontend Engineer and UX/UI Lead. Converting visitors into clients with production-ready code.",
+  openGraph: {
+    title: "AumLab | Senior Frontend Engineer & UX/UI Lead",
+    description: "World-class professional portfolio. High-performance, accessible, and conversion-focused.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,11 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${cinzel.variable} ${montserrat.variable} antialiased`}
+        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-background text-foreground flex flex-col min-h-screen`}
       >
-        {children}
+        <Navigation />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

@@ -1,104 +1,77 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useGuestRecognition } from '@/utils/guest';
-import { ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 export default function Hero() {
-  const guestName = useGuestRecognition();
-  const { scrollY } = useScroll();
-  const yText = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacityText = useTransform(scrollY, [0, 300], [1, 0]);
-
-  const scrollToCalendar = () => {
-    const calendarSection = document.getElementById('calendar');
-    if (calendarSection) {
-      calendarSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-primary-canvas to-[#123E36]">
-      {/* Background Decorative Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 left-0 w-64 h-64 bg-typography-sacred opacity-5 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-typography-sacred opacity-5 rounded-full blur-3xl translate-x-[50%] translate-y-[50%]" />
-
-        {/* Animated Mandala with Morphing */}
-        <motion.svg
-          aria-hidden="true"
-          viewBox="0 0 100 100"
-          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 opacity-10 text-typography-sacred"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-        >
-           <motion.path
-             d="M50 5 L65 35 L95 50 L65 65 L50 95 L35 65 L5 50 L35 35 Z"
-             fill="none"
-             stroke="currentColor"
-             strokeWidth="0.2"
-             initial={{ pathLength: 0 }}
-             animate={{
-               pathLength: 1,
-               d: "M50 0 L85 15 L100 50 L85 85 L50 100 L15 85 L0 50 L15 15 Z"
-             }}
-             transition={{
-               pathLength: { duration: 3, ease: "easeInOut" },
-               d: { duration: 5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }
-             }}
-           />
-           <circle cx="50" cy="50" r="25" stroke="currentColor" strokeWidth="0.1" fill="none" />
-           <circle cx="50" cy="50" r="15" stroke="currentColor" strokeWidth="0.1" fill="none" />
-        </motion.svg>
-      </div>
-
-      <motion.div
-        style={{ y: yText, opacity: opacityText }}
-        className="z-10 text-center space-y-8 px-6 max-w-4xl"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-      >
-        <motion.h2
-          className="text-lg md:text-xl tracking-[0.3em] uppercase text-typography-muted font-light"
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <div className="container-width grid lg:grid-cols-2 gap-12 items-center">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative z-10"
         >
-          The Wedding Celebration of
-        </motion.h2>
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-secondary text-xs font-medium text-secondary-foreground mb-6">
+            <span className="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></span>
+            Available for new projects
+          </div>
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-typography-sacred drop-shadow-2xl font-serif">
-          Himanshu <br className="md:hidden" /> <span className="text-4xl md:text-6xl align-middle">&</span> Anjali
-        </h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-foreground">
+            Building Digital Experiences That <span className="text-muted-foreground">Convert</span>.
+          </h1>
 
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-accent-divider to-transparent mx-auto my-6" />
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-lg leading-relaxed">
+            I help startups and visionary brands build premium, high-performance web applications that impress users and drive business growth.
+          </p>
 
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
-        >
-            <p className="text-xl md:text-3xl text-secondary-ivory font-light italic">
-            Inviting {guestName}
-            </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="#contact"
+              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-medium text-primary-foreground bg-primary rounded-full hover:opacity-90 transition-all shadow-sm group"
+            >
+              Contact Me
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              href="https://calendly.com/" // Placeholder, user can update
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3.5 text-base font-medium text-foreground bg-background border border-border rounded-full hover:bg-secondary transition-colors"
+            >
+              <Calendar className="mr-2 w-4 h-4" />
+              Book a Call
+            </Link>
+          </div>
         </motion.div>
 
-        <p className="text-sm md:text-lg mt-8 tracking-[0.2em] font-sans text-secondary-ivory uppercase">
-          Sunday, April 26th, 2026
-        </p>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="relative hidden lg:block"
+        >
+          {/* Abstract geometric visual representing structure and clarity */}
+          <div className="relative w-full aspect-square max-w-md mx-auto">
+             <div className="absolute inset-0 bg-gradient-to-tr from-gray-100 to-gray-50 rounded-3xl rotate-3 border border-border"></div>
+             <div className="absolute inset-0 bg-white rounded-3xl -rotate-3 border border-border shadow-xl flex items-center justify-center overflow-hidden">
+                <div className="grid grid-cols-2 gap-4 p-8 w-full h-full opacity-50">
+                   <div className="bg-gray-100 rounded-lg w-full h-32"></div>
+                   <div className="bg-gray-100 rounded-lg w-full h-32 translate-y-8"></div>
+                   <div className="bg-gray-100 rounded-lg w-full h-32 -translate-y-8"></div>
+                   <div className="bg-gray-100 rounded-lg w-full h-32"></div>
+                </div>
+             </div>
+          </div>
+        </motion.div>
+      </div>
 
-       <motion.button
-        className="absolute bottom-12 text-typography-sacred/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-sacred rounded-full p-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 2, duration: 2, repeat: Infinity }}
-        onClick={scrollToCalendar}
-        aria-label="Scroll to calendar"
-      >
-        <ChevronDown size={32} />
-      </motion.button>
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gray-50 rounded-bl-full -z-10 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-gray-50 rounded-tr-full -z-10 opacity-50"></div>
     </section>
   );
 }

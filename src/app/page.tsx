@@ -1,22 +1,38 @@
-import { Suspense } from 'react';
 import Hero from '@/components/Hero';
-import CalendarSection from '@/components/CalendarSection';
-import LogisticsSection from '@/components/LogisticsSection';
+import Services from '@/components/Services';
+import Projects from '@/components/Projects';
+import Differentiation from '@/components/Differentiation';
+import Testimonials from '@/components/Testimonials';
+import FinalCTA from '@/components/FinalCTA';
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-primary-canvas">
-      <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-typography-gold font-serif">Loading Invitation...</div>}>
-        <Hero />
-      </Suspense>
-      <CalendarSection />
-      <Suspense fallback={null}>
-        <LogisticsSection />
-      </Suspense>
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "AumLab",
+    "jobTitle": "Senior Frontend Engineer & UX/UI Lead",
+    "url": "https://aumlab.com",
+    "sameAs": [
+      "https://github.com",
+      "https://linkedin.com",
+      "https://twitter.com"
+    ],
+    "knowsAbout": ["Web Development", "UX/UI Design", "Next.js", "React", "SEO", "Generative AI"],
+    "description": "I help startups and brands build premium, high-performance web applications."
+  };
 
-      <footer className="py-8 text-center text-secondary-ivory/50 text-xs tracking-widest uppercase font-sans">
-        © 2026 The Eternal Union. Designed with Love.
-      </footer>
-    </main>
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Hero />
+      <Services />
+      <Projects />
+      <Differentiation />
+      <Testimonials />
+      <FinalCTA />
+    </>
   );
 }
