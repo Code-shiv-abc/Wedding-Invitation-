@@ -1,32 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-canvas: #0E2F2A;
-  --color-secondary-ivory: #F3EFE6;
-  --color-typography-gold: #D4AF37;
+  /* Color Palette */
+  --color-primary-maroon: #4A0404;   /* Deep Velvet Maroon */
+  --color-primary-ivory: #FDFCF0;    /* Soft Ivory Background */
+  --color-accent-gold: #D4AF37;      /* Metallic Gold */
+  --color-accent-saffron: #D97706;   /* Deep Saffron */
 
-  --color-secondary-surface: #13453B;
-  --color-typography-sacred: #E6C97A;
-  --color-typography-muted: #C9D6CF;
+  /* Text Colors */
+  --color-text-main: #4A0404;
+  --color-text-gold: #B8860B;        /* Darker Gold for text readability */
+  --color-text-muted: #8B5A2B;
 
-  --color-accent-divider: #C9A24D;
-  --color-accent-icon: #7FAF8A;
-
-  --font-cinzel: var(--font-cinzel);
-  --font-montserrat: var(--font-montserrat);
-
-  --font-serif: var(--font-cinzel);
+  /* Fonts */
+  --font-serif: var(--font-playfair);
   --font-sans: var(--font-montserrat);
+  --font-sacred: var(--font-yatra);
 }
 
+/* Base Styles */
 body {
-  background-color: var(--color-primary-canvas);
-  color: var(--color-secondary-ivory);
+  background-color: var(--color-primary-ivory);
+  color: var(--color-primary-maroon);
   font-family: var(--font-montserrat), sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cinzel), serif;
-  color: var(--color-typography-gold);
+  font-family: var(--font-playfair), serif;
+  font-weight: 700;
+}
+
+/* Sacred Typography Utilities */
+.font-sacred {
+  font-family: var(--font-yatra), serif;
+}
+
+.text-gold {
+  color: var(--color-accent-gold);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-gold);
+  border-radius: 4px;
 }

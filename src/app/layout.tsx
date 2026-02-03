@@ -1,21 +1,34 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Montserrat } from "next/font/google";
+import { Playfair_Display, Yatra_One, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel_Decorative({
-  weight: ["400", "700", "900"],
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const yatra = Yatra_One({
+  weight: "400",
+  subsets: ["devanagari", "latin"],
+  variable: "--font-yatra",
+  display: "swap",
 });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "The Eternal Union: Himanshu & Anjali",
-  description: "World-Class Luxury Digital Wedding Invitation",
+  title: "Sacred Digital Vivah: Sujeet & Sonali",
+  description: "Inviting you to the sacred union of Sujeet & Sonali. February 11, 2026.",
+  openGraph: {
+    title: "Sujeet & Sonali | Wedding Invitation",
+    description: "Join us in celebrating our sacred union.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,10 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${cinzel.variable} ${montserrat.variable} antialiased`}
-      >
+    <html lang="en" className={`${playfair.variable} ${yatra.variable} ${montserrat.variable}`}>
+      <body className="antialiased bg-primary-ivory text-primary-maroon font-sans">
         {children}
       </body>
     </html>
