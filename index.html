@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sacred Wedding | Sujeet & Sonali</title>
+
+  <meta name="description" content="Sacred Wedding Ceremony of Sujeet Kumar & Sonali on February 11, 2026 at Lucknow." />
+  <link rel="canonical" href="https://sacred-wedding-sujeet-sonali.vercel.app/" />
+
+  <meta property="og:title" content="Sacred Wedding Invitation | Sujeet & Sonali" />
+  <meta property="og:description" content="Join us in celebrating the sacred union." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@500;700&family=Cormorant+Garamond:wght@500;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Wedding Ceremony of Sujeet Kumar & Sonali",
+    "startDate": "2026-02-11T11:30:00Z",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Rajni Marriage Lawn",
+      "address": "Ranjeet Nagar, Sector 6 B, Vrindavan, Nilmatha Road, Telibagh, Lucknow"
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Siyaram Yadav Family"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <div id="entryScreen" class="entry">
+    <img src="/ganesha.svg" class="ganesha-entry" alt="Lord Ganesha" width="120" height="120" />
+    <p class="mantra">वक्रतुंड महाकाय सूर्यकोटि समप्रभ।</p>
+    <button id="enterBtn" class="enter-btn">Enter the Sacred Invitation</button>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <main id="mainContent" class="hidden">
+
+    <section class="hero">
+      <div id="guestName" class="guest"></div>
+      <h1 class="names">Chi. Sujeet Kumar <span>&</span> Ayu. Sonali</h1>
+      <p class="date">Wednesday, February 11, 2026 • Lucknow</p>
+    </section>
+
+    <section class="timeline">
+      <div class="line"></div>
+
+      <div class="event reveal">
+        <h3>Tel Pujan</h3>
+        <p>February 9, 2026</p>
+      </div>
+
+      <div class="event reveal">
+        <h3>Matru Pujan</h3>
+        <p>February 10, 2026</p>
+      </div>
+
+      <div class="event reveal">
+        <h3>Wedding Ceremony</h3>
+        <p>February 11, 2026</p>
+      </div>
+
+      <div class="event reveal">
+        <h3>Bahu Aagaman</h3>
+        <p>February 12, 2026</p>
+      </div>
+    </section>
+
+    <section class="venue reveal">
+      <h2>Venue</h2>
+      <p>Rajni Marriage Lawn, Telibagh, Lucknow</p>
+
+      <div class="buttons">
+        <a id="calendarBtn" class="btn" target="_blank">Add to Calendar</a>
+        <a href="https://maps.google.com/?q=Rajni+Marriage+Lawn+Lucknow" target="_blank" class="btn">View Location</a>
+        <a href="https://wa.me/918318389194?text=I%20will%20attend%20the%20wedding" target="_blank" class="btn gold">RSVP on WhatsApp</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>With Blessings</p>
+      <p>Siyaram Yadav & Family</p>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
