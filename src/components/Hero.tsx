@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useGuestRecognition } from '@/utils/guest';
 import { ChevronDown } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Hero() {
   const guestName = useGuestRecognition();
@@ -59,6 +60,22 @@ export default function Hero() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="flex justify-center mb-2"
+        >
+          <Image
+            src="/ganesha.png"
+            alt="Lord Ganesha"
+            width={150}
+            height={82}
+            className="opacity-90"
+            priority
+          />
+        </motion.div>
+
         <motion.h2
           className="text-lg md:text-xl tracking-[0.3em] uppercase text-typography-muted font-light"
           initial={{ opacity: 0, y: 20 }}
