@@ -69,9 +69,9 @@ export default function Hero() {
           <Image
             src="/ganesha.png"
             alt="Lord Ganesha"
-            width={150}
-            height={82}
-            className="opacity-90"
+            width={120}
+            height={200}
+            className="opacity-90 object-contain"
             priority
           />
         </motion.div>
