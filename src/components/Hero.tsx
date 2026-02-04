@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useGuestRecognition } from '@/utils/guest';
 import { ChevronDown } from 'lucide-react';
+import { WEDDING_DATA } from '@/utils/wedding-data';
 
 export default function Hero() {
   const guestName = useGuestRecognition();
@@ -69,7 +70,7 @@ export default function Hero() {
         </motion.h2>
 
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-typography-sacred drop-shadow-2xl font-serif">
-          Himanshu <br className="md:hidden" /> <span className="text-4xl md:text-6xl align-middle">&</span> Anjali
+          {WEDDING_DATA.groom.name} <br className="md:hidden" /> <span className="text-4xl md:text-6xl align-middle">&</span> {WEDDING_DATA.bride.name}
         </h1>
 
         <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-accent-divider to-transparent mx-auto my-6" />
@@ -85,7 +86,7 @@ export default function Hero() {
         </motion.div>
 
         <p className="text-sm md:text-lg mt-8 tracking-[0.2em] font-sans text-secondary-ivory uppercase">
-          Sunday, April 26th, 2026
+          {WEDDING_DATA.weddingDate}
         </p>
       </motion.div>
 
