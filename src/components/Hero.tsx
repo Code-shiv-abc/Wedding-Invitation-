@@ -55,66 +55,83 @@ export default function Hero() {
 
       <motion.div
         style={{ y: yText, opacity: opacityText }}
-        className="z-10 text-center space-y-8 px-6 max-w-4xl"
-        initial={{ opacity: 0, scale: 0.9 }}
+        className="z-10 text-center space-y-10 px-6 max-w-5xl"
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="flex justify-center mb-2"
+          initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="flex justify-center mb-6 relative"
         >
+          <div className="absolute inset-0 bg-typography-gold/20 blur-3xl rounded-full scale-150 animate-pulse" />
           <Image
             src="/ganesha.png"
             alt="Lord Ganesha"
             width={120}
             height={200}
-            className="opacity-90 object-contain"
+            className="opacity-95 object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]"
             priority
           />
         </motion.div>
 
         <motion.h2
-          className="text-lg md:text-xl tracking-[0.3em] uppercase text-typography-muted font-light"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-xl md:text-2xl tracking-[0.4em] uppercase text-typography-muted font-light"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
         >
           The Wedding Celebration of
         </motion.h2>
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-typography-sacred drop-shadow-2xl font-serif">
-          Himanshu <br className="md:hidden" /> <span className="text-4xl md:text-6xl align-middle">&</span> Anjali
-        </h1>
-
-        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-accent-divider to-transparent mx-auto my-6" />
+        <motion.h1
+          className="text-7xl md:text-9xl lg:text-[10rem] font-bold text-typography-sacred drop-shadow-2xl font-serif leading-tight"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 1.2, ease: "easeOut" }}
+        >
+          Himanshu <br className="md:hidden" /> <span className="text-5xl md:text-7xl align-middle font-light text-typography-gold">&</span> Anjali
+        </motion.h1>
 
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 1 }}
+          className="w-48 h-[2px] bg-gradient-to-r from-transparent via-accent-divider to-transparent mx-auto my-8 opacity-70"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
+        />
+
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 1 }}
+            className="space-y-4"
         >
-            <p className="text-xl md:text-3xl text-secondary-ivory font-light italic">
+            <p className="text-2xl md:text-4xl text-secondary-ivory font-light italic font-serif tracking-wide">
             Inviting {guestName}
             </p>
         </motion.div>
 
-        <p className="text-sm md:text-lg mt-8 tracking-[0.2em] font-sans text-secondary-ivory uppercase">
+        <motion.p
+          className="text-base md:text-xl mt-10 tracking-[0.3em] font-sans text-secondary-ivory/90 uppercase"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
           Sunday, April 26th, 2026
-        </p>
+        </motion.p>
       </motion.div>
 
        <motion.button
-        className="absolute bottom-12 text-typography-sacred/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-sacred rounded-full p-2"
+        className="absolute bottom-10 text-typography-gold/80 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-typography-gold rounded-full p-4 hover:bg-white/5 transition-colors duration-300"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 2, duration: 2, repeat: Infinity }}
+        animate={{ opacity: 1, y: [0, 15, 0] }}
+        transition={{ delay: 2, duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         onClick={scrollToCalendar}
         aria-label="Scroll to calendar"
       >
-        <ChevronDown size={32} />
+        <ChevronDown size={40} className="drop-shadow-lg" />
       </motion.button>
     </section>
   );
