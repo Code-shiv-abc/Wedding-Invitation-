@@ -19,7 +19,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-primary-canvas to-[#123E36]">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-primary-canvas">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-64 h-64 bg-typography-sacred opacity-5 rounded-full blur-3xl translate-x-[-50%] translate-y-[-50%]" />
