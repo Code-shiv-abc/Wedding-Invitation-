@@ -1,32 +1,49 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-canvas: #0E2F2A;
-  --color-secondary-ivory: #F3EFE6;
-  --color-typography-gold: #D4AF37;
+  /* Color Palette */
+  --color-primary-dark: #0E0E11;
+  --color-ivory-light: #F5F2EC;
+  --color-accent-gold: #C6A75E;
+  --color-accent-maroon: #6A1E2E;
 
-  --color-secondary-surface: #13453B;
-  --color-typography-sacred: #E6C97A;
-  --color-typography-muted: #C9D6CF;
+  /* Text Colors */
+  --color-text-light: #FFFFFF;
+  --color-text-dark: #1A1A1A;
 
-  --color-accent-divider: #C9A24D;
-  --color-accent-icon: #7FAF8A;
+  /* Typography */
+  --font-playfair: var(--font-playfair);
+  --font-inter: var(--font-inter);
 
-  --font-cinzel: var(--font-cinzel);
-  --font-montserrat: var(--font-montserrat);
+  /* Default font mapping */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
 
-  --font-serif: var(--font-cinzel);
-  --font-sans: var(--font-montserrat);
+  /* Spacing Scale Extension (optional if standard tailwind scale is not enough, but standard is usually fine.
+     The prompt asks for a specific scale base 8. Tailwind default is base 4, so 8, 16, 24 are 2, 4, 6.
+     We can just use standard classes for now, or define if needed.
+     Let's stick to standard classes that map to the requested pixels:
+     8px = p-2, 16px = p-4, 24px = p-6, 32px = p-8, 48px = p-12, 64px = p-16, 96px = p-24, 120px = p-30 (custom needed), 160px = p-40.
+  */
+  --spacing-30: 7.5rem; /* 120px */
 }
 
+/* Base Styles */
 body {
-  background-color: var(--color-primary-canvas);
-  color: var(--color-secondary-ivory);
-  font-family: var(--font-montserrat), sans-serif;
+  background-color: var(--color-primary-dark);
+  color: var(--color-ivory-light);
+  font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cinzel), serif;
-  color: var(--color-typography-gold);
+  font-family: var(--font-playfair), serif;
+  color: var(--color-ivory-light);
+  font-weight: 400; /* Luxury often uses lighter weights for display fonts */
+}
+
+::selection {
+  background-color: var(--color-accent-gold);
+  color: var(--color-primary-dark);
 }
