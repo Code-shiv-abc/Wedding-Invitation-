@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD700;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g fill="url(#goldGradient)" filter="url(#glow)">
+    <!-- Simplified artistic Om/Ganesha shape -->
+    <path d="M256,100 C200,100 150,140 150,200 C150,250 180,280 220,290 C180,310 150,350 150,400 C150,450 200,480 256,480 C320,480 370,440 370,380 L370,200 C370,140 320,100 256,100 Z M370,200 C400,180 440,180 460,200" stroke="url(#goldGradient)" stroke-width="20" stroke-linecap="round" fill="none"/>
+    <circle cx="390" cy="120" r="20" fill="url(#goldGradient)" />
+  </g>
+</svg>
