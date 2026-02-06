@@ -28,3 +28,11 @@ If you need interactivity, consider converting part of this to a Client Componen
 ✓ Compiled in 86ms
  GET / 200 in 372ms (compile: 103ms, render: 269ms)
  GET / 200 in 120ms (compile: 4ms, render: 116ms)
+✓ Compiled in 245ms
+✓ Compiled in 111ms
+✓ Compiled in 234ms
+✓ Compiled in 97ms
+✓ Compiled in 149ms
+✓ Compiled in 98ms
+✓ Compiled in 74ms
+ GET / 200 in 2.5s (compile: 781ms, render: 1731ms)

@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Color Palette */
-  --color-primary-dark: #0E0E11;
-  --color-ivory-light: #F5F2EC;
-  --color-accent-gold: #C6A75E;
-  --color-accent-maroon: #6A1E2E;
+  /* Color Palette - Deep Charcoal & Soft Ivory */
+  --color-primary-dark: #121212; /* Deep Charcoal Base */
+  --color-primary-charcoal: #1A1A1A; /* Slightly lighter charcoal for gradients */
+  --color-ivory-light: #F5F2EC; /* Soft Ivory */
+  --color-accent-gold: #D4AF37; /* Refined Classic Gold */
+  --color-accent-gold-dim: #8A7224; /* Dim Gold for subtle borders */
 
   /* Text Colors */
-  --color-text-light: #FFFFFF;
-  --color-text-dark: #1A1A1A;
+  --color-text-light: #F5F2EC;
+  --color-text-muted: #A3A3A3;
+  --color-text-dark: #121212;
 
   /* Typography */
   --font-playfair: var(--font-playfair);
@@ -19,28 +21,44 @@
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
 
-  /* Spacing Scale Extension (optional if standard tailwind scale is not enough, but standard is usually fine.
-     The prompt asks for a specific scale base 8. Tailwind default is base 4, so 8, 16, 24 are 2, 4, 6.
-     We can just use standard classes for now, or define if needed.
-     Let's stick to standard classes that map to the requested pixels:
-     8px = p-2, 16px = p-4, 24px = p-6, 32px = p-8, 48px = p-12, 64px = p-16, 96px = p-24, 120px = p-30 (custom needed), 160px = p-40.
-  */
+  /* Spacing Scale - Explicit 8px grid alignment helpers */
+  --spacing-18: 4.5rem; /* 72px */
   --spacing-30: 7.5rem; /* 120px */
+  --spacing-40: 10rem;  /* 160px */
 }
 
 /* Base Styles */
 body {
   background-color: var(--color-primary-dark);
-  color: var(--color-ivory-light);
+  color: var(--color-text-light);
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Typography Refinements */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), serif;
   color: var(--color-ivory-light);
-  font-weight: 400; /* Luxury often uses lighter weights for display fonts */
+  font-weight: 400;
+  letter-spacing: 0.02em; /* Slight letter spacing for luxury feel */
+}
+
+h1 {
+  letter-spacing: -0.02em; /* Tighter for very large display text */
+}
+
+/* Utility for Sacred Atmosphere */
+.bg-sacred-gradient {
+  background: radial-gradient(circle at center, var(--color-primary-charcoal) 0%, var(--color-primary-dark) 70%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 ::selection {

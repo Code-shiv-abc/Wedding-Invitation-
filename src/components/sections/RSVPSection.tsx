@@ -9,54 +9,44 @@ import { WEDDING_DATA } from '@/utils/wedding-data';
 export function RSVPSection() {
     const { rsvp } = WEDDING_DATA;
   return (
-    <SectionWrapper background="dark" id="rsvp">
-      <Container className="text-center max-w-2xl">
-        <h2 className="text-4xl md:text-5xl text-ivory-light mb-4">R.S.V.P.</h2>
-        <GoldDivider />
-        <p className="text-ivory-light/80 text-lg mb-12 font-sans font-light">
-            We look forward to celebrating with you.<br/>Please respond by {rsvp.deadline}
+    <SectionWrapper background="charcoal" id="rsvp">
+      <Container className="text-center max-w-xl">
+        <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">R.S.V.P.</h2>
+        <GoldDivider className="opacity-40" />
+        <p className="text-ivory-light/60 text-base mb-12 font-sans font-light tracking-wide mt-8">
+            Please respond by {rsvp.deadline}
         </p>
 
-        <form className="flex flex-col gap-8 text-left" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="group">
-                    <label className="block text-xs uppercase tracking-widest text-accent-gold mb-2">First Name</label>
-                    <input type="text" className="w-full bg-transparent border-b border-accent-gold/30 text-ivory-light py-2 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg" />
+        <form className="flex flex-col gap-10 text-left" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="group relative">
+                    <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/20" />
                 </div>
-                <div className="group">
-                     <label className="block text-xs uppercase tracking-widest text-accent-gold mb-2">Last Name</label>
-                    <input type="text" className="w-full bg-transparent border-b border-accent-gold/30 text-ivory-light py-2 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg" />
+                <div className="group relative">
+                    <input type="text" placeholder="Last Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/20" />
                 </div>
             </div>
 
-             <div className="group">
-                <label className="block text-xs uppercase tracking-widest text-accent-gold mb-2">Email Address</label>
-                <input type="email" className="w-full bg-transparent border-b border-accent-gold/30 text-ivory-light py-2 focus:outline-none focus:border-accent-gold transition-colors font-sans" />
+             <div className="group relative">
+                <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-sans placeholder:text-ivory-light/20" />
             </div>
 
-             <div className="flex flex-col gap-4">
-                <label className="text-xs uppercase tracking-widest text-accent-gold">Will you be attending?</label>
-                <div className="flex flex-col md:flex-row gap-6 mt-1">
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                        <div className="w-4 h-4 border border-accent-gold rounded-full flex items-center justify-center group-hover:bg-accent-gold/10 transition-colors">
-                             <div className="w-2 h-2 bg-accent-gold rounded-full opacity-0" />
-                             {/* Simplified radio for CSS-only not working without state, relying on native radio appearance for now but styled */}
-                             <input type="radio" name="attending" className="hidden" />
-                        </div>
-                         {/* Actually let's just use standard radio but accent color */}
+             <div className="flex flex-col gap-6 mt-4 items-center">
+                <div className="flex flex-row gap-8">
+                    <label className="flex items-center gap-3 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
                          <input type="radio" name="attending" className="accent-accent-gold w-4 h-4 cursor-pointer" />
-                        <span className="text-ivory-light font-sans font-light">Joyfully Accept</span>
+                        <span className="text-ivory-light font-sans text-sm tracking-wide">Joyfully Accept</span>
                     </label>
-                    <label className="flex items-center gap-3 cursor-pointer">
+                    <label className="flex items-center gap-3 cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
                         <input type="radio" name="attending" className="accent-accent-gold w-4 h-4 cursor-pointer" />
-                        <span className="text-ivory-light font-sans font-light">Regretfully Decline</span>
+                        <span className="text-ivory-light font-sans text-sm tracking-wide">Regretfully Decline</span>
                     </label>
                 </div>
             </div>
 
             <div className="mt-8 text-center">
-                <PrimaryButton type="submit" className="w-full md:w-auto px-16">
-                    Confirm
+                <PrimaryButton type="submit" className="w-full md:w-auto px-12 py-4 text-xs tracking-[0.2em] opacity-90 hover:opacity-100">
+                    Confirm Attendance
                 </PrimaryButton>
             </div>
         </form>
