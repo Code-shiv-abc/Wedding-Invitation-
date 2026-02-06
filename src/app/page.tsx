@@ -4,7 +4,7 @@ import { LoveStorySection } from '@/components/sections/LoveStorySection';
 import { EventDetailsSection } from '@/components/sections/EventDetailsSection';
 import { GallerySection } from '@/components/sections/GallerySection';
 import { RSVPSection } from '@/components/sections/RSVPSection';
-import { BlessingsSection } from '@/components/sections/BlessingsSection';
+import { FamilySection } from '@/components/sections/FamilySection';
 import { Footer } from '@/components/layout/Footer';
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
       <SacredMantraSection />
       <LoveStorySection />
       <EventDetailsSection />
+      <FamilySection />
       <GallerySection />
       <RSVPSection />
-      <BlessingsSection />
       <Footer />
     </main>
   );
