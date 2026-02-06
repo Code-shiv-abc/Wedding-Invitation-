@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Montserrat } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const cinzel = Cinzel_Decorative({
-  weight: ["400", "700", "900"],
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-cinzel",
+  variable: "--font-playfair",
+  display: "swap",
 });
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cinzel.variable} ${montserrat.variable} antialiased`}
+        className={`${playfair.variable} ${inter.variable} antialiased bg-primary-dark text-ivory-light`}
       >
         {children}
       </body>

@@ -1,22 +1,23 @@
-import { Suspense } from 'react';
-import Hero from '@/components/Hero';
-import CalendarSection from '@/components/CalendarSection';
-import LogisticsSection from '@/components/LogisticsSection';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { SacredMantraSection } from '@/components/sections/SacredMantraSection';
+import { LoveStorySection } from '@/components/sections/LoveStorySection';
+import { EventDetailsSection } from '@/components/sections/EventDetailsSection';
+import { GallerySection } from '@/components/sections/GallerySection';
+import { RSVPSection } from '@/components/sections/RSVPSection';
+import { BlessingsSection } from '@/components/sections/BlessingsSection';
+import { Footer } from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-primary-canvas">
-      <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-typography-gold font-serif">Loading Invitation...</div>}>
-        <Hero />
-      </Suspense>
-      <CalendarSection />
-      <Suspense fallback={null}>
-        <LogisticsSection />
-      </Suspense>
-
-      <footer className="py-8 text-center text-secondary-ivory/50 text-xs tracking-widest uppercase font-sans">
-        © 2026 The Eternal Union. Designed with Love.
-      </footer>
+    <main className="min-h-screen w-full selection:bg-accent-gold selection:text-primary-dark">
+      <HeroSection />
+      <SacredMantraSection />
+      <LoveStorySection />
+      <EventDetailsSection />
+      <GallerySection />
+      <RSVPSection />
+      <BlessingsSection />
+      <Footer />
     </main>
   );
 }
