@@ -6,22 +6,23 @@ import { WEDDING_DATA } from '@/utils/wedding-data';
 export function EventDetailsSection() {
   const { events } = WEDDING_DATA;
   return (
-    <SectionWrapper background="dark" id="events">
+    <SectionWrapper background="charcoal" id="events">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl text-ivory-light mb-4">Celebrations</h2>
-          <GoldDivider />
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Celebrations</h2>
+          <GoldDivider className="opacity-40" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 max-w-5xl mx-auto">
           {events.map((event) => (
-            <div key={event.id} className="flex flex-col items-center text-center p-8 border border-accent-gold/20 rounded-sm hover:border-accent-gold/40 transition-colors">
+            <div key={event.id} className="flex flex-col items-center text-center p-8 border-t border-accent-gold/10 hover:border-accent-gold/30 transition-colors duration-500">
               <h3 className="text-2xl md:text-3xl text-accent-gold mb-4 font-serif">{event.title}</h3>
-              <p className="text-ivory-light/90 text-sm uppercase tracking-widest mb-2 font-sans">{event.date}</p>
-              <p className="text-ivory-light/70 mb-4 font-sans text-sm">{event.time}</p>
-              <div className="w-12 h-[1px] bg-accent-gold/50 my-4" />
-              <p className="text-lg font-medium text-ivory-light mb-2 font-serif">{event.venue}</p>
-              <p className="text-sm text-ivory-light/60 max-w-xs font-sans leading-relaxed">{event.description}</p>
+              <div className="flex flex-col gap-1 mb-6 font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ivory-light/60">
+                 <span>{event.date}</span>
+                 <span className="opacity-70">{event.time}</span>
+              </div>
+              <p className="text-lg font-medium text-ivory-light mb-3 font-serif">{event.venue}</p>
+              <p className="text-sm text-ivory-light/50 max-w-xs font-sans leading-relaxed">{event.description}</p>
             </div>
           ))}
         </div>

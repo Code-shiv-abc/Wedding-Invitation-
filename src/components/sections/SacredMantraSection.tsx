@@ -5,12 +5,12 @@ import { WEDDING_DATA } from '@/utils/wedding-data';
 export function SacredMantraSection() {
   const { mantra } = WEDDING_DATA;
   return (
-    <SectionWrapper background="dark" className="text-center py-20">
+    <SectionWrapper background="charcoal" className="text-center">
       <Container className="max-w-4xl">
-        <h2 className="text-2xl md:text-4xl text-accent-gold mb-10 font-serif leading-relaxed tracking-wide">
+        <h2 className="text-3xl md:text-5xl text-accent-gold mb-12 font-serif leading-relaxed tracking-wide opacity-90 whitespace-pre-line">
           {mantra.sanskrit}
         </h2>
-        <p className="text-ivory-light/70 text-base md:text-lg font-light leading-loose tracking-wide font-sans">
+        <p className="text-ivory-light/60 text-base md:text-lg font-light leading-loose tracking-wide font-sans max-w-2xl mx-auto">
           {mantra.translation}
         </p>
       </Container>

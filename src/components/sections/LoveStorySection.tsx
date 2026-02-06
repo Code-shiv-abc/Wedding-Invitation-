@@ -6,13 +6,13 @@ import { WEDDING_DATA } from '@/utils/wedding-data';
 export function LoveStorySection() {
   const { story } = WEDDING_DATA;
   return (
-    <SectionWrapper background="ivory" id="story">
+    <SectionWrapper background="dark" id="story">
       <Container className="flex flex-col items-center text-center">
-        <h2 className="text-4xl md:text-5xl text-primary-dark mb-6">
+        <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
           {story.title}
         </h2>
-        <GoldDivider />
-        <p className="max-w-2xl text-text-dark/80 text-lg leading-relaxed mt-6 font-light">
+        <GoldDivider className="opacity-50" />
+        <p className="max-w-xl text-ivory-light/70 text-lg md:text-xl leading-relaxed mt-8 font-light tracking-wide">
           {story.text}
         </p>
       </Container>
