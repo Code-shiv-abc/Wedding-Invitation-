@@ -6,7 +6,7 @@ import { GoldDivider } from '@/components/ui/GoldDivider';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { StaggerContainer } from '@/components/motion/StaggerContainer';
 import { motion } from 'framer-motion';
-import { fadeUpVariants } from '@/lib/motion';
+import { fadeUpCardVariants } from '@/lib/motion';
 
 export function EventDetailsSection() {
   const { events } = WEDDING_DATA;
@@ -20,13 +20,12 @@ export function EventDetailsSection() {
 
         <StaggerContainer
             className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 max-w-5xl mx-auto"
-            staggerDelay={0.15}
         >
           {events.map((event) => (
             <motion.div
                 key={event.id}
                 className="flex flex-col items-center text-center p-8 border-t border-accent-gold/10 hover:border-accent-gold/30 transition-colors duration-500"
-                variants={fadeUpVariants}
+                variants={fadeUpCardVariants}
             >
               <h3 className="text-2xl md:text-3xl text-accent-gold mb-4 font-serif">{event.title}</h3>
               <div className="flex flex-col gap-1 mb-6 font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ivory-light/60">
