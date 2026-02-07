@@ -1,3 +1,5 @@
+'use client';
+
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Container } from '@/components/ui/Container';
 import { WEDDING_DATA } from '@/utils/wedding-data';
