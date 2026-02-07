@@ -15,7 +15,8 @@ export function LoveStorySection() {
       <Container className="flex flex-col items-center text-center">
         {/* Title */}
         <div className="mb-20">
-             <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
+            {/* Added tracking-tight explicitly although global handles it, for clarity */}
+             <h2 className="text-4xl md:text-5xl text-ivory-light mb-8 tracking-tight">
             {story.title}
             </h2>
             <GoldDivider className="opacity-50" />
@@ -32,13 +33,15 @@ export function LoveStorySection() {
                     variants={fadeUpCardVariants}
                     className="flex flex-col items-center p-6 md:p-8"
                 >
-                    <span className="text-accent-gold/40 font-serif text-5xl mb-6 opacity-50">
+                    {/* Chapter Number: Softer gold, slightly more opaque but still subtle */}
+                    <span className="text-accent-gold-soft/50 font-serif text-5xl mb-6 opacity-80">
                         {index + 1}
                     </span>
-                    <h3 className="text-xl md:text-2xl text-ivory-light mb-4 font-serif italic">
+                    <h3 className="text-xl md:text-2xl text-ivory-light mb-4 font-serif italic tracking-tight">
                         {chapter.title}
                     </h3>
-                    <p className="text-ivory-light/70 text-sm md:text-base leading-relaxed font-light tracking-wide max-w-xs">
+                    {/* Body Text: High contrast, normal tracking for readability */}
+                    <p className="text-ivory-light/90 text-sm md:text-base leading-relaxed font-light tracking-normal max-w-xs">
                         {chapter.text}
                     </p>
                 </motion.div>

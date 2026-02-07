@@ -13,12 +13,14 @@ export function SacredMantraSection() {
       <Container className="max-w-4xl">
         <MotionWrapper variants={fadeInVariants}>
             {/* Hindi Mantra - Calm Calligraphy Style */}
-            <h2 className="text-2xl md:text-4xl text-accent-gold mb-12 font-serif leading-relaxed tracking-wider opacity-90 whitespace-pre-line font-light">
+            {/* Refined: Tighter leading (1.5), tighter tracking for premium feel */}
+            <h2 className="text-2xl md:text-4xl text-accent-gold mb-12 font-serif leading-normal tracking-tight opacity-90 whitespace-pre-line font-light">
             {mantra.sanskrit}
             </h2>
 
             {/* English Meaning - Concise & Grounded */}
-            <p className="text-ivory-light/60 text-sm md:text-base font-light leading-loose tracking-wide font-sans max-w-xl mx-auto italic">
+            {/* Refined: Higher contrast (ivory-light/90) */}
+            <p className="text-ivory-light/90 text-sm md:text-base font-light leading-loose tracking-wide font-sans max-w-xl mx-auto italic">
             {mantra.translation}
             </p>
         </MotionWrapper>
