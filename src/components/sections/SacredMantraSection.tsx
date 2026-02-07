@@ -13,7 +13,7 @@ export function SacredMantraSection() {
       <Container className="max-w-4xl">
         <MotionWrapper variants={fadeInVariants}>
             {/* Hindi Mantra - Calm Calligraphy Style */}
-            <h2 className="text-2xl md:text-4xl text-accent-gold mb-12 font-serif leading-relaxed tracking-wider opacity-90 whitespace-pre-line font-light">
+            <h2 className="text-2xl md:text-4xl text-metallic-gold glow-sacred mb-12 font-serif leading-relaxed tracking-wider opacity-90 whitespace-pre-line font-light">
             {mantra.sanskrit}
             </h2>
 

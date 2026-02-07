@@ -16,7 +16,7 @@ export function GallerySection() {
   return (
     <SectionWrapper background="dark" id="gallery">
       <Container className="text-center">
-        <h2 className="text-4xl md:text-5xl text-ivory-light mb-8 font-serif">Captured Moments</h2>
+        <h2 className="text-4xl md:text-5xl text-metallic-gold glow-sacred mb-8 font-serif">Captured Moments</h2>
         <GoldDivider className="opacity-40 mb-16" />
 
         {/* Asymmetrical Grid Layout */}
@@ -47,7 +47,7 @@ export function GallerySection() {
 
                 {/* Caption Reveal */}
                 <div className="absolute bottom-6 left-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 z-10">
-                   <span className="text-ivory-light font-serif text-lg tracking-wide border-b border-primary-gold/50 pb-1">
+                   <span className="text-ivory-light font-serif text-lg tracking-wide border-b border-metallic-gold pb-1">
                      {item.caption}
                    </span>
                 </div>

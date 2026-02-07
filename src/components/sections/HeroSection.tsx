@@ -44,8 +44,9 @@ export function HeroSection() {
   return (
     <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
       {/* Atmospheric Glow - Radial Gradient behind names */}
+      {/* Controlled Radiant Glow: Low opacity (5-8%), Large blur radius, No pulsing */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-gold/10 blur-[80px] rounded-full pointer-events-none z-0 mix-blend-screen"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sacred-glow rounded-full pointer-events-none z-0 mix-blend-screen opacity-60"
         aria-hidden="true"
       />
 
@@ -69,17 +70,17 @@ export function HeroSection() {
                 </p>
             </motion.div>
 
-            {/* 2. Names Block */}
+            {/* 2. Names Block with True Metallic Gold & Controlled Glow */}
             <motion.div variants={namesBlockVariants} className="flex flex-col items-center relative z-10">
-                <h1 className="font-serif text-ivory-light leading-[0.85]">
-                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.groom}</span>
-                    <span className="block text-accent-gold text-3xl md:text-4xl my-10 font-serif italic">&</span>
-                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.bride}</span>
+                <h1 className="font-serif leading-[0.85]">
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight text-metallic-gold glow-sacred pb-2">{couple.groom}</span>
+                    <span className="block text-3xl md:text-4xl my-10 font-serif italic text-metallic-gold glow-sacred">&</span>
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight text-metallic-gold glow-sacred pb-2">{couple.bride}</span>
                 </h1>
 
-                {/* Upgraded Divider: 2px height, gradient, glow */}
+                {/* Upgraded Divider: Metallic Gradient + Controlled Glow */}
                 <div className="my-12 flex justify-center w-full opacity-90">
-                    <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent shadow-[0_0_8px_rgba(212,175,55,0.6)]" />
+                    <div className="h-[2px] w-32 bg-metallic-gold glow-sacred rounded-full" />
                 </div>
             </motion.div>
 
@@ -94,7 +95,7 @@ export function HeroSection() {
 
             {/* 4. CTA */}
             <motion.div variants={fadeInVariants}>
-                <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.2em] px-12 py-5 text-[10px] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-[3px] active:scale-[0.98]">
+                <PrimaryButton className="px-12 py-5 text-[10px] hover:-translate-y-[3px] active:scale-[0.98]">
                 {hero.cta}
                 </PrimaryButton>
             </motion.div>

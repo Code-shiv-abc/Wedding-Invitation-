@@ -15,7 +15,7 @@ export function FamilySection() {
     <SectionWrapper background="charcoal" className="text-center py-24 md:py-32">
       <Container className="max-w-3xl">
         <MotionWrapper variants={fadeInVariants}>
-            <h2 className="text-2xl md:text-3xl text-accent-gold mb-8 font-serif italic tracking-wide">
+            <h2 className="text-2xl md:text-3xl text-metallic-gold glow-sacred mb-8 font-serif italic tracking-wide">
             {family.title}
             </h2>
             <p className="text-ivory-light/80 text-base md:text-lg font-light leading-loose tracking-wide font-sans mb-12">

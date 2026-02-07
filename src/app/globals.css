@@ -54,11 +54,61 @@ h1 {
   background: radial-gradient(circle at center, var(--color-primary-charcoal) 0%, var(--color-primary-dark) 70%);
 }
 
-.text-gold-gradient {
-  background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37);
+/* True Metallic Gold Gradient for TEXT */
+.text-metallic-gold {
+  background: linear-gradient(
+    to bottom right,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  background-size: 200% auto;
+}
+
+/* True Metallic Gold Gradient for BACKGROUNDS (dividers, etc) */
+.bg-metallic-gold {
+  background: linear-gradient(
+    to right,
+    rgba(191, 149, 63, 0) 0%, /* Transparent edges for dividers? Or solid? */
+    #bf953f 10%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 90%,
+    rgba(170, 119, 28, 0) 100%
+  );
+}
+
+/* Metallic Gold Border */
+.border-metallic-gold {
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+    to bottom right,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 100%
+  ) 1;
+}
+
+/* Controlled Sacred Glow */
+/* Subtle, no yellow halo, divine feel */
+.glow-sacred {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+/* Atmospheric Background Glow */
+/* Low opacity (5-8%), large blur, no pulse */
+.bg-sacred-glow {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0) 70%);
+  filter: blur(100px);
 }
 
 ::selection {

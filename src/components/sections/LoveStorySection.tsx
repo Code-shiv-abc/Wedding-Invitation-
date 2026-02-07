@@ -15,7 +15,7 @@ export function LoveStorySection() {
       <Container className="flex flex-col items-center text-center">
         {/* Title */}
         <div className="mb-20">
-             <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
+             <h2 className="text-4xl md:text-5xl text-metallic-gold glow-sacred mb-8">
             {story.title}
             </h2>
             <GoldDivider className="opacity-50" />
@@ -32,7 +32,7 @@ export function LoveStorySection() {
                     variants={fadeUpCardVariants}
                     className="flex flex-col items-center p-6 md:p-8"
                 >
-                    <span className="text-accent-gold/40 font-serif text-5xl mb-6 opacity-50">
+                    <span className="text-metallic-gold font-serif text-5xl mb-6 opacity-40">
                         {index + 1}
                     </span>
                     <h3 className="text-xl md:text-2xl text-ivory-light mb-4 font-serif italic">

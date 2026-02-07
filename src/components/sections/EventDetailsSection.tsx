@@ -14,7 +14,7 @@ export function EventDetailsSection() {
     <SectionWrapper background="charcoal" id="events" className="py-24 md:py-32">
       <Container>
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Celebrations</h2>
+          <h2 className="text-4xl md:text-5xl text-metallic-gold glow-sacred mb-6">Celebrations</h2>
           <GoldDivider className="opacity-40" />
         </div>
 
@@ -27,7 +27,7 @@ export function EventDetailsSection() {
                 className="flex flex-col items-center text-center p-8 border-t border-accent-gold/10 hover:border-accent-gold/30 transition-colors duration-500"
                 variants={fadeUpCardVariants}
             >
-              <h3 className="text-2xl md:text-3xl text-accent-gold mb-4 font-serif">{event.title}</h3>
+              <h3 className="text-2xl md:text-3xl text-metallic-gold mb-4 font-serif">{event.title}</h3>
               <div className="flex flex-col gap-1 mb-6 font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ivory-light/60">
                  <span className="font-bold text-ivory-light/80">{event.date}</span>
                  <span className="opacity-70">{event.time}</span>
