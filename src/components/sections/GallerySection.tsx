@@ -11,10 +11,15 @@ export function GallerySection() {
   return (
     <SectionWrapper background="dark" id="gallery">
       <Container className="text-center">
-        <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">Captured Moments</h2>
-        <GoldDivider className="opacity-40" />
+        {/* Title Block Spacing */}
+        <div className="mb-20">
+            {/* Rule: Heading -> Paragraph/Divider: 24px (mb-6) */}
+            <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Captured Moments</h2>
+            <GoldDivider className="opacity-40" />
+        </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 px-4 md:px-0">
+        {/* Grid Spacing: 32px (gap-8) */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
           {[1, 2, 3].map((i) => (
              <motion.div
                 key={i}

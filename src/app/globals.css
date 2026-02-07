@@ -21,10 +21,13 @@
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
 
-  /* Spacing Scale - Explicit 8px grid alignment helpers */
-  --spacing-18: 4.5rem; /* 72px */
-  --spacing-30: 7.5rem; /* 120px */
-  --spacing-40: 10rem;  /* 160px */
+  /* Spacing Scale - 8px Grid Enforcement */
+  /* Replaces existing generic 40/30 vars with explicit narrative scale */
+  /* Mobile: 64px, Desktop: 96px, Hero: 128px */
+  --spacing-16: 4rem;    /* 64px */
+  --spacing-24: 6rem;    /* 96px */
+  --spacing-32: 8rem;    /* 128px */
+  --spacing-40: 10rem;   /* 160px */
 }
 
 /* Base Styles */

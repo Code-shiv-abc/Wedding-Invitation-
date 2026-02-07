@@ -18,7 +18,10 @@ export function SectionWrapper({ children, className, id, background = 'dark' }:
     <section
       id={id}
       className={cn(
-        "w-full py-24 md:py-32", // Increased vertical padding (96px / 128px)
+        // STRICT SPACING RULE:
+        // Mobile: 64px (py-16)
+        // Desktop: 96px (md:py-24)
+        "w-full py-16 md:py-24",
         bgClasses[background],
         className
       )}

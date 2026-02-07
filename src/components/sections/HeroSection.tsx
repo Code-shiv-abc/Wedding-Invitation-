@@ -43,7 +43,8 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
+    // STRICT SPACING RULE: Hero Top Padding 128px (pt-32)
+    <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden pt-32">
       <Container className="relative z-10 h-full">
         <motion.div
             className="flex flex-col items-center justify-center h-full max-w-[1400px] mx-auto"

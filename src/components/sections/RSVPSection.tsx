@@ -11,17 +11,20 @@ import { fadeInVariants } from '@/lib/motion';
 export function RSVPSection() {
     const { rsvp } = WEDDING_DATA;
   return (
-    <SectionWrapper background="charcoal" id="rsvp" className="py-24 md:py-32">
+    <SectionWrapper background="charcoal" id="rsvp">
       <Container className="text-center max-w-xl">
         <MotionWrapper variants={fadeInVariants}>
+            {/* Rule: Space between heading & paragraph: 24px (mb-6) */}
             <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Join Us</h2>
             <GoldDivider className="opacity-40" />
-            <p className="text-ivory-light/60 text-base mb-12 font-sans font-light tracking-wide mt-8">
+
+            {/* Rule: Paragraph to Form? "Space between stacked elements: 32px" */}
+            <p className="text-ivory-light/60 text-base mb-12 font-sans font-light tracking-wide mt-8"> {/* 32px mt-8 / 48px mb-12 */}
                 We would be honored by your presence. Please respond by {rsvp.deadline}.
             </p>
 
-            <form className="flex flex-col gap-10 text-left" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <form className="flex flex-col gap-10 text-left" onSubmit={(e) => e.preventDefault()}> {/* 40px gap between inputs? Let's use 32px (gap-8) to follow rule */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* 32px gap */}
                     <div className="group relative">
                         <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/20" />
                     </div>
