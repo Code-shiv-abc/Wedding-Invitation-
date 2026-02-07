@@ -3,6 +3,7 @@
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Container } from '@/components/ui/Container';
 import { GoldDivider } from '@/components/ui/GoldDivider';
+import { SectionBlender } from '@/components/ui/SectionBlender';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { StaggerContainer } from '@/components/motion/StaggerContainer';
 import { motion } from 'framer-motion';
@@ -11,14 +12,21 @@ import { fadeUpCardVariants } from '@/lib/motion';
 export function LoveStorySection() {
   const { story } = WEDDING_DATA;
   return (
-    <SectionWrapper background="dark" id="story">
-      <Container className="flex flex-col items-center text-center">
+    <SectionWrapper background="ivory" id="story">
+      {/* Top Blend: Charcoal -> Ivory */}
+      <SectionBlender
+        gradient="from-primary-charcoal to-transparent"
+        position="top"
+        height="h-32 md:h-48"
+      />
+
+      <Container className="flex flex-col items-center text-center relative z-10">
         {/* Title */}
         <div className="mb-20">
-             <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
+             <h2 className="text-4xl md:text-5xl text-primary-dark mb-8">
             {story.title}
             </h2>
-            <GoldDivider className="opacity-50" />
+            <GoldDivider className="opacity-80" />
         </div>
 
         {/* 3 Micro-Chapters Grid */}
@@ -32,19 +40,26 @@ export function LoveStorySection() {
                     variants={fadeUpCardVariants}
                     className="flex flex-col items-center p-6 md:p-8"
                 >
-                    <span className="text-accent-gold/40 font-serif text-5xl mb-6 opacity-50">
+                    <span className="text-accent-gold font-serif text-5xl mb-6 opacity-80">
                         {index + 1}
                     </span>
-                    <h3 className="text-xl md:text-2xl text-ivory-light mb-4 font-serif italic">
+                    <h3 className="text-xl md:text-2xl text-primary-charcoal mb-4 font-serif italic">
                         {chapter.title}
                     </h3>
-                    <p className="text-ivory-light/70 text-sm md:text-base leading-relaxed font-light tracking-wide max-w-xs">
+                    <p className="text-primary-dark/80 text-sm md:text-base leading-relaxed font-light tracking-wide max-w-xs">
                         {chapter.text}
                     </p>
                 </motion.div>
             ))}
         </StaggerContainer>
       </Container>
+
+      {/* Bottom Blend: Ivory -> Charcoal (for next section) */}
+      <SectionBlender
+        gradient="from-transparent to-primary-charcoal"
+        position="bottom"
+        height="h-32 md:h-48"
+      />
     </SectionWrapper>
   );
 }

@@ -2,6 +2,7 @@
 
 import { Container } from '@/components/ui/Container';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
+import { SectionBlender } from '@/components/ui/SectionBlender';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeInVariants, fadeUpLargeVariants, EASING, DURATIONS, STAGGER } from '@/lib/motion';
@@ -100,6 +101,13 @@ export function HeroSection() {
             </motion.div>
         </motion.div>
       </Container>
+
+      {/* Bottom Blend: Hero Gradient -> Mantra Charcoal */}
+      <SectionBlender
+        gradient="from-transparent to-primary-charcoal"
+        position="bottom"
+        height="h-32 md:h-40"
+      />
     </section>
   );
 }
