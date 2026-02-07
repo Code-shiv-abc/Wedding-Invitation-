@@ -1,7 +1,6 @@
 'use client';
 
 import { Container } from '@/components/ui/Container';
-import { GoldDivider } from '@/components/ui/GoldDivider';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -44,6 +43,12 @@ export function HeroSection() {
 
   return (
     <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
+      {/* Atmospheric Glow - Radial Gradient behind names */}
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-gold/10 blur-[80px] rounded-full pointer-events-none z-0 mix-blend-screen"
+        aria-hidden="true"
+      />
+
       <Container className="relative z-10 h-full">
         <motion.div
             className="flex flex-col items-center justify-center h-full max-w-[1400px] mx-auto"
@@ -65,15 +70,16 @@ export function HeroSection() {
             </motion.div>
 
             {/* 2. Names Block */}
-            <motion.div variants={namesBlockVariants} className="flex flex-col items-center">
-                <h1 className="font-serif text-ivory-light leading-[0.9]">
-                    <span className="block text-[clamp(4rem,10vw,8.5rem)] tracking-tight">{couple.groom}</span>
-                    <span className="block text-accent-gold text-3xl md:text-4xl my-6 font-serif italic">&</span>
-                    <span className="block text-[clamp(4rem,10vw,8.5rem)] tracking-tight">{couple.bride}</span>
+            <motion.div variants={namesBlockVariants} className="flex flex-col items-center relative z-10">
+                <h1 className="font-serif text-ivory-light leading-[0.85]">
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.groom}</span>
+                    <span className="block text-accent-gold text-3xl md:text-4xl my-10 font-serif italic">&</span>
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.bride}</span>
                 </h1>
 
-                <div className="my-10 opacity-60">
-                    <GoldDivider className="w-16" />
+                {/* Upgraded Divider: 2px height, gradient, glow */}
+                <div className="my-12 flex justify-center w-full opacity-90">
+                    <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent shadow-[0_0_8px_rgba(212,175,55,0.6)]" />
                 </div>
             </motion.div>
 
@@ -88,7 +94,7 @@ export function HeroSection() {
 
             {/* 4. CTA */}
             <motion.div variants={fadeInVariants}>
-                <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.2em] px-10 py-4 text-[10px] transition-all duration-150 hover:scale-[1.015] active:scale-[0.98]">
+                <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.2em] px-12 py-5 text-[10px] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-[3px] active:scale-[0.98]">
                 {hero.cta}
                 </PrimaryButton>
             </motion.div>
