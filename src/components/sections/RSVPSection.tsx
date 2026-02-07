@@ -11,13 +11,13 @@ import { fadeInVariants } from '@/lib/motion';
 export function RSVPSection() {
     const { rsvp } = WEDDING_DATA;
   return (
-    <SectionWrapper background="charcoal" id="rsvp">
+    <SectionWrapper background="charcoal" id="rsvp" className="py-24 md:py-32">
       <Container className="text-center max-w-xl">
         <MotionWrapper variants={fadeInVariants}>
-            <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">R.S.V.P.</h2>
+            <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Join Us</h2>
             <GoldDivider className="opacity-40" />
             <p className="text-ivory-light/60 text-base mb-12 font-sans font-light tracking-wide mt-8">
-                Please respond by {rsvp.deadline}
+                We would be honored by your presence. Please respond by {rsvp.deadline}.
             </p>
 
             <form className="flex flex-col gap-10 text-left" onSubmit={(e) => e.preventDefault()}>

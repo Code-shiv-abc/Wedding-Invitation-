@@ -11,7 +11,7 @@ import { fadeUpCardVariants } from '@/lib/motion';
 export function EventDetailsSection() {
   const { events } = WEDDING_DATA;
   return (
-    <SectionWrapper background="charcoal" id="events">
+    <SectionWrapper background="charcoal" id="events" className="py-24 md:py-32">
       <Container>
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Celebrations</h2>
@@ -29,7 +29,7 @@ export function EventDetailsSection() {
             >
               <h3 className="text-2xl md:text-3xl text-accent-gold mb-4 font-serif">{event.title}</h3>
               <div className="flex flex-col gap-1 mb-6 font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-ivory-light/60">
-                 <span>{event.date}</span>
+                 <span className="font-bold text-ivory-light/80">{event.date}</span>
                  <span className="opacity-70">{event.time}</span>
               </div>
               <p className="text-lg font-medium text-ivory-light mb-3 font-serif">{event.venue}</p>

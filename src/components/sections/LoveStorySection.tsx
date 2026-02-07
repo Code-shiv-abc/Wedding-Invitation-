@@ -1,24 +1,49 @@
+'use client';
+
 import { SectionWrapper } from '@/components/ui/SectionWrapper';
 import { Container } from '@/components/ui/Container';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 import { WEDDING_DATA } from '@/utils/wedding-data';
-import { MotionWrapper } from '@/components/motion/MotionWrapper';
-import { fadeUpLargeVariants } from '@/lib/motion';
+import { StaggerContainer } from '@/components/motion/StaggerContainer';
+import { motion } from 'framer-motion';
+import { fadeUpCardVariants } from '@/lib/motion';
 
 export function LoveStorySection() {
   const { story } = WEDDING_DATA;
   return (
     <SectionWrapper background="dark" id="story">
       <Container className="flex flex-col items-center text-center">
-        <MotionWrapper variants={fadeUpLargeVariants} className="flex flex-col items-center">
-            <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
+        {/* Title */}
+        <div className="mb-20">
+             <h2 className="text-4xl md:text-5xl text-ivory-light mb-8">
             {story.title}
             </h2>
             <GoldDivider className="opacity-50" />
-            <p className="max-w-xl text-ivory-light/70 text-lg md:text-xl leading-relaxed mt-8 font-light tracking-wide">
-            {story.text}
-            </p>
-        </MotionWrapper>
+        </div>
+
+        {/* 3 Micro-Chapters Grid */}
+        <StaggerContainer
+            className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-6xl mx-auto"
+            staggerDelay={0.15}
+        >
+            {story.chapters.map((chapter, index) => (
+                <motion.div
+                    key={index}
+                    variants={fadeUpCardVariants}
+                    className="flex flex-col items-center p-6 md:p-8"
+                >
+                    <span className="text-accent-gold/40 font-serif text-5xl mb-6 opacity-50">
+                        {index + 1}
+                    </span>
+                    <h3 className="text-xl md:text-2xl text-ivory-light mb-4 font-serif italic">
+                        {chapter.title}
+                    </h3>
+                    <p className="text-ivory-light/70 text-sm md:text-base leading-relaxed font-light tracking-wide max-w-xs">
+                        {chapter.text}
+                    </p>
+                </motion.div>
+            ))}
+        </StaggerContainer>
       </Container>
     </SectionWrapper>
   );
