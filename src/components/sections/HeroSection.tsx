@@ -61,10 +61,10 @@ export function HeroSection() {
                 variants={fadeInVariants}
                 className="flex flex-col gap-3 mb-12 md:mb-16"
             >
-                <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-ivory-light/60 font-medium">
+                <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-accent-gold-soft font-medium">
                     {hero.line1}
                 </p>
-                <p className="text-sm md:text-base font-serif italic text-accent-gold/80 tracking-wide">
+                <p className="text-sm md:text-base font-serif italic text-accent-gold/90 tracking-wide">
                     {hero.line2}
                 </p>
             </motion.div>
@@ -72,9 +72,12 @@ export function HeroSection() {
             {/* 2. Names Block */}
             <motion.div variants={namesBlockVariants} className="flex flex-col items-center relative z-10">
                 <h1 className="font-serif text-ivory-light leading-[0.85]">
-                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.groom}</span>
-                    <span className="block text-accent-gold text-3xl md:text-4xl my-10 font-serif italic">&</span>
-                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tight">{couple.bride}</span>
+                    {/* Visual Correction: Slight padding right to balance italic/large font perception if needed, but standard serif usually centers okay.
+                        Added tracking-tighter for premium feel. */}
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tighter">{couple.groom}</span>
+                    {/* Refined Ampersand: Smaller, lighter, softer */}
+                    <span className="block text-accent-gold text-2xl md:text-3xl my-10 font-serif italic font-light opacity-90">&</span>
+                    <span className="block text-[clamp(4.5rem,11vw,9.5rem)] tracking-tighter">{couple.bride}</span>
                 </h1>
 
                 {/* Upgraded Divider: 2px height, gradient, glow */}
@@ -85,16 +88,16 @@ export function HeroSection() {
 
             {/* 3. Context (Date/Location) */}
             <motion.div
-                className="font-sans text-sm md:text-base tracking-[0.25em] uppercase mb-16 text-ivory-light/80 flex flex-col gap-2"
+                className="font-sans text-sm md:text-base tracking-[0.3em] uppercase mb-16 text-accent-gold-soft flex flex-col gap-2"
                 variants={fadeUpLargeVariants}
             >
                 <span>{details.date}</span>
-                <span className="text-xs opacity-60">{details.location}</span>
+                <span className="text-xs opacity-80">{details.location}</span>
             </motion.div>
 
             {/* 4. CTA */}
             <motion.div variants={fadeInVariants}>
-                <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.2em] px-12 py-5 text-[10px] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-[3px] active:scale-[0.98]">
+                <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.3em] px-12 py-5 text-[10px] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-[3px] active:scale-[0.98]">
                 {hero.cta}
                 </PrimaryButton>
             </motion.div>

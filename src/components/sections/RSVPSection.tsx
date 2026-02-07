@@ -14,24 +14,24 @@ export function RSVPSection() {
     <SectionWrapper background="charcoal" id="rsvp" className="py-24 md:py-32">
       <Container className="text-center max-w-xl">
         <MotionWrapper variants={fadeInVariants}>
-            <h2 className="text-4xl md:text-5xl text-ivory-light mb-6">Join Us</h2>
+            <h2 className="text-4xl md:text-5xl text-ivory-light mb-6 tracking-tight">Join Us</h2>
             <GoldDivider className="opacity-40" />
-            <p className="text-ivory-light/60 text-base mb-12 font-sans font-light tracking-wide mt-8">
+            <p className="text-ivory-light/80 text-base mb-12 font-sans font-light tracking-normal mt-8">
                 We would be honored by your presence. Please respond by {rsvp.deadline}.
             </p>
 
             <form className="flex flex-col gap-10 text-left" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="group relative">
-                        <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/20" />
+                        <input type="text" placeholder="First Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/40" />
                     </div>
                     <div className="group relative">
-                        <input type="text" placeholder="Last Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/20" />
+                        <input type="text" placeholder="Last Name" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-serif text-lg placeholder:text-ivory-light/40" />
                     </div>
                 </div>
 
                 <div className="group relative">
-                    <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-sans placeholder:text-ivory-light/20" />
+                    <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-ivory-light/20 text-ivory-light py-3 focus:outline-none focus:border-accent-gold transition-colors font-sans placeholder:text-ivory-light/40" />
                 </div>
 
                 <div className="flex flex-col gap-6 mt-4 items-center">
@@ -48,7 +48,7 @@ export function RSVPSection() {
                 </div>
 
                 <div className="mt-8 text-center">
-                    <PrimaryButton type="submit" className="w-full md:w-auto px-12 py-4 text-xs tracking-[0.2em] opacity-90 hover:opacity-100 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
+                    <PrimaryButton type="submit" className="w-full md:w-auto px-12 py-4 text-xs tracking-[0.3em] opacity-90 hover:opacity-100 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
                         Confirm Attendance
                     </PrimaryButton>
                 </div>
