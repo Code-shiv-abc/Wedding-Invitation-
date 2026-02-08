@@ -1,14 +1,21 @@
 'use client';
 
+import { useRef } from 'react';
 import { Container } from '@/components/ui/Container';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { WEDDING_DATA } from '@/utils/wedding-data';
-import { motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { fadeInVariants, fadeUpLargeVariants, EASING, DURATIONS, STAGGER } from '@/lib/motion';
 
 export function HeroSection() {
   const { couple, hero, details } = WEDDING_DATA;
   const shouldReduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Parallax Scroll Hooks
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 1000], [0, 300]); // Background moves slower
+  const textY = useTransform(scrollY, [0, 500], [0, 100]); // Text moves slightly
 
   // Refined Hero Sequence: 4 Steps Max
   // 1. Sacred Intro (Fade)
@@ -42,9 +49,10 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
-      {/* Atmospheric Glow - Radial Gradient behind names */}
-      <div
+    <section ref={containerRef} className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
+      {/* Atmospheric Glow - Parallaxed */}
+      <motion.div
+        style={{ y: bgY }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-gold/10 blur-[80px] rounded-full pointer-events-none z-0 mix-blend-screen"
         aria-hidden="true"
       />
@@ -55,6 +63,7 @@ export function HeroSection() {
             variants={activeContainerVariants}
             initial="hidden"
             animate="visible"
+            style={{ y: textY }}
         >
             {/* 1. Sacred Intro - Two Lines */}
             <motion.div

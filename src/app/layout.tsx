@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
+import { FloatingNav } from "@/components/layout/FloatingNav";
 import "./globals.css";
 
 // Optimize Playfair Display: Subset 'latin', Use 'swap', Preload Critical Weights Only
@@ -98,7 +100,10 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${inter.variable} antialiased bg-primary-dark text-ivory-light`}
       >
-        {children}
+        <SmoothScroll>
+          <FloatingNav />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
