@@ -55,6 +55,10 @@ h1 {
   background: radial-gradient(circle at center, var(--color-primary-charcoal) 0%, var(--color-primary-dark) 70%);
 }
 
+.bg-sacred-glow-radial {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--color-accent-gold) 10%, transparent), transparent);
+}
+
 .text-gold-gradient {
   background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37);
   -webkit-background-clip: text;

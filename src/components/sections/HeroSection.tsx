@@ -45,7 +45,7 @@ export function HeroSection() {
     <section className="relative h-screen w-full bg-sacred-gradient flex items-center justify-center text-center overflow-hidden">
       {/* Atmospheric Glow - Radial Gradient behind names */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-gold/10 blur-[80px] rounded-full pointer-events-none z-0 mix-blend-screen"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sacred-glow-radial rounded-full pointer-events-none z-0 mix-blend-screen"
         aria-hidden="true"
       />
 
