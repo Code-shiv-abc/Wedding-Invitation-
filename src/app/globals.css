@@ -26,6 +26,8 @@
   --spacing-18: 4.5rem; /* 72px */
   --spacing-30: 7.5rem; /* 120px */
   --spacing-40: 10rem;  /* 160px */
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Base Styles */
