@@ -1,0 +1,1 @@
+A custom React hook that calculates parallax offset based on scroll position for smooth depth effects
