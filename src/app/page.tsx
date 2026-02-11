@@ -5,6 +5,7 @@ import { LoveStorySection } from '@/components/sections/LoveStorySection';
 import { EventDetailsSection } from '@/components/sections/EventDetailsSection';
 import { FamilySection } from '@/components/sections/FamilySection';
 import { Footer } from '@/components/layout/Footer';
+import { getGuestDetails } from '@/lib/guest-data';
 
 // Dynamic Import for heavy/below-the-fold components
 const GallerySection = dynamic(() => import('@/components/sections/GallerySection').then(mod => mod.GallerySection), {
@@ -17,10 +18,17 @@ const RSVPSection = dynamic(() => import('@/components/sections/RSVPSection').th
   ssr: true,
 });
 
-export default function Home() {
+export default async function Home(props: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const searchParams = await props.searchParams;
+  const n = searchParams.n;
+  const guestName = Array.isArray(n) ? n[0] : n;
+  const initialGuest = guestName ? await getGuestDetails(guestName) : null;
+
   return (
     <main className="min-h-screen w-full selection:bg-accent-gold selection:text-primary-dark">
-      <HeroSection />
+      <HeroSection initialGuest={initialGuest} />
       <SacredMantraSection />
       <LoveStorySection />
       <EventDetailsSection />

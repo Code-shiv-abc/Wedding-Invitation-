@@ -5,10 +5,35 @@ import { PrimaryButton } from '@/components/ui/PrimaryButton';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeInVariants, fadeUpLargeVariants, EASING, DURATIONS, STAGGER } from '@/lib/motion';
+import type { Guest } from '@/lib/guest-data';
+import { useEffect, useState } from 'react';
+import { fetchGuestAction } from '@/app/actions';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  initialGuest?: Guest | null;
+}
+
+export function HeroSection({ initialGuest }: HeroSectionProps) {
   const { couple, hero, details } = WEDDING_DATA;
   const shouldReduceMotion = useReducedMotion();
+
+  const [guest, setGuest] = useState<Guest | null>(initialGuest || null);
+
+  useEffect(() => {
+    if (initialGuest) {
+      // SSR: Provided by server, save to local storage for future visits
+      setGuest(initialGuest);
+      localStorage.setItem('wedding_guest_name', initialGuest.name);
+    } else {
+      // CSR: Check if we have a saved guest name and fetch details
+      const savedName = localStorage.getItem('wedding_guest_name');
+      if (savedName) {
+        fetchGuestAction(savedName).then((details) => {
+          if (details) setGuest(details);
+        });
+      }
+    }
+  }, [initialGuest]);
 
   // Refined Hero Sequence: 4 Steps Max
   // 1. Sacred Intro (Fade)
@@ -62,7 +87,7 @@ export function HeroSection() {
                 className="flex flex-col gap-3 mb-12 md:mb-16"
             >
                 <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-accent-gold-soft font-medium">
-                    {hero.line1}
+                    {guest ? guest.welcomeMessage : hero.line1}
                 </p>
                 <p className="text-sm md:text-base font-serif italic text-accent-gold/90 tracking-wide">
                     {hero.line2}
