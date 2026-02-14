@@ -5,58 +5,86 @@ import { Container } from '@/components/ui/Container';
 import { GoldDivider } from '@/components/ui/GoldDivider';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { StaggerContainer } from '@/components/motion/StaggerContainer';
-import { motion } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { fadeUpCardVariants } from '@/lib/motion';
+import { MouseEvent } from 'react';
 
 function EventCard({ event }: { event: typeof WEDDING_DATA['events'][0] }) {
-  // Extract day and month for dramatic date display if possible, or just use the string
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent<HTMLDivElement>) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  // Parse Date
   const dateParts = event.date.replace(/,/g, '').split(' ');
-  const month = dateParts[0] || '';
+  const month = dateParts[0]?.substring(0, 3).toUpperCase() || '';
   const day = dateParts[1] || '';
   const year = dateParts[2] || '';
 
   return (
     <motion.div
       variants={fadeUpCardVariants}
-      className="group relative overflow-hidden rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm p-8 transition-all duration-700 hover:border-accent-gold/40 hover:bg-white/[0.06] hover:shadow-2xl hover:shadow-accent-gold/5 hover:-translate-y-1"
+      onMouseMove={handleMouseMove}
+      className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-colors duration-700 hover:border-accent-gold/30 hover:bg-white/[0.04]"
     >
-      {/* "Alive" Background Effect - Subtle moving gradient */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-1000 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.2),transparent_70%)] blur-2xl group-hover:animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+      {/* Spotlight Effect - Gold Glow */}
+      <motion.div
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              500px circle at ${mouseX}px ${mouseY}px,
+              rgba(212, 175, 55, 0.15),
+              transparent 80%
+            )
+          `,
+        }}
+      />
 
-      {/* Decorative Gold Line */}
-      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-accent-gold/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-      <div className="relative z-10 flex flex-col items-center text-center h-full">
-        {/* Date Badge - Elite Style */}
-        <div className="mb-6 relative">
-          <div className="absolute inset-0 bg-accent-gold/10 blur-xl rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
-          <div className="flex flex-col items-center justify-center border-y border-accent-gold/30 py-2 px-6 min-w-[120px]">
-             <span className="text-xs uppercase tracking-[0.3em] text-accent-gold-soft mb-1">{month}</span>
-             <span className="text-4xl font-serif text-ivory-light font-medium">{day}</span>
-             <span className="text-[10px] uppercase tracking-[0.2em] text-white/40 mt-1">{year}</span>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Top Row: Date & Time */}
+        <div className="flex justify-between items-start mb-8 border-b border-white/5 pb-6 group-hover:border-accent-gold/20 transition-colors duration-700">
+            <div className="flex flex-col">
+                <span className="text-4xl md:text-5xl font-serif text-ivory-light group-hover:text-accent-gold transition-colors duration-500">
+                    {day}
+                </span>
+                <span className="text-xs tracking-[0.3em] uppercase text-accent-gold-soft/80 mt-1">
+                    {month} {year}
+                </span>
+            </div>
+            <div className="text-right flex flex-col items-end">
+                <span className="text-xs tracking-[0.2em] uppercase text-white/40 mb-1">Time</span>
+                <span className="font-sans text-sm text-ivory-light/90 tracking-wide">{event.time}</span>
+            </div>
         </div>
 
-        {/* Title */}
-        <h3 className="text-3xl md:text-4xl text-accent-gold font-serif mb-4 tracking-tight group-hover:text-white transition-colors duration-500">
-          {event.title}
-        </h3>
-
-        {/* Divider */}
-        <div className="w-12 h-[1px] bg-accent-gold/30 my-4 group-hover:w-24 transition-all duration-700" />
-
-        {/* Meta Info */}
-        <div className="flex flex-col gap-2 mb-6 font-sans text-xs uppercase tracking-[0.25em] text-accent-gold-soft/90 group-hover:text-accent-gold transition-colors duration-500">
-          <span className="flex items-center justify-center gap-2">
-            <span className="opacity-70">At</span> {event.time}
-          </span>
-          <span className="font-medium text-ivory-light/90">{event.venue}</span>
+        {/* Middle: Title */}
+        <div className="flex-grow flex flex-col justify-center py-2">
+             <h3 className="text-3xl md:text-4xl font-serif text-ivory-light mb-4 group-hover:translate-x-2 transition-transform duration-500 ease-out">
+                {event.title}
+            </h3>
+            <div className="w-12 h-[1px] bg-accent-gold/40 group-hover:w-24 group-hover:bg-accent-gold transition-all duration-700" />
         </div>
 
-        {/* Description */}
-        <p className="text-sm md:text-base text-white/60 font-serif italic leading-relaxed max-w-xs group-hover:text-white/80 transition-colors duration-500">
-          &ldquo;{event.description}&rdquo;
-        </p>
+        {/* Bottom: Venue & Desc */}
+        <div className="mt-8 pt-6 border-t border-white/5 group-hover:border-accent-gold/20 transition-colors duration-700">
+            <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-end">
+                <div className="flex flex-col">
+                    <span className="text-xs tracking-[0.2em] uppercase text-white/40 mb-1">Venue</span>
+                     <span className="text-sm md:text-base font-medium text-ivory-light/90">
+                        {event.venue}
+                     </span>
+                </div>
+                <p className="text-sm text-white/50 italic font-serif max-w-xs md:text-right leading-relaxed group-hover:text-white/80 transition-colors duration-500">
+                    &ldquo;{event.description}&rdquo;
+                </p>
+            </div>
+        </div>
       </div>
     </motion.div>
   );
@@ -66,7 +94,7 @@ export function EventDetailsSection() {
   const { events } = WEDDING_DATA;
   return (
     <SectionWrapper background="charcoal" id="events" className="py-24 md:py-32 overflow-hidden">
-      {/* Ambient Background Glow */}
+      {/* Ambient Background Glow - Preserved but refined */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-accent-gold/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
 
