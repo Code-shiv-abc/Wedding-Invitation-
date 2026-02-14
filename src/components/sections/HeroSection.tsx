@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { Container } from '@/components/ui/Container';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
+import { CountdownTimer } from '@/components/ui/CountdownTimer';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { fadeInVariants, fadeUpLargeVariants, EASING, DURATIONS, STAGGER } from '@/lib/motion';
@@ -94,14 +95,19 @@ export function HeroSection() {
 
             {/* 3. Context (Date/Location) */}
             <motion.div
-                className="font-sans text-sm md:text-base tracking-[0.25em] uppercase mb-16 text-ivory-light/80 flex flex-col gap-2"
+                className="font-sans text-sm md:text-base tracking-[0.25em] uppercase mb-8 text-ivory-light/80 flex flex-col gap-2"
                 variants={fadeUpLargeVariants}
             >
                 <span>{details.date}</span>
                 <span className="text-xs opacity-60">{details.location}</span>
             </motion.div>
 
-            {/* 4. CTA */}
+            {/* 4. Countdown Timer */}
+            <motion.div variants={fadeInVariants}>
+                <CountdownTimer />
+            </motion.div>
+
+            {/* 5. CTA */}
             <motion.div variants={fadeInVariants}>
                 <PrimaryButton className="border-accent-gold/40 hover:border-accent-gold/60 hover:bg-transparent text-accent-gold/80 hover:text-accent-gold tracking-[0.2em] px-12 py-5 text-[10px] transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:-translate-y-[3px] active:scale-[0.98]">
                 {hero.cta}
