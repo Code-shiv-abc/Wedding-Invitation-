@@ -2,6 +2,7 @@
 
 import { Container } from '@/components/ui/Container';
 import { PrimaryButton } from '@/components/ui/PrimaryButton';
+import { RoyalCountdown } from '@/components/ui/RoyalCountdown';
 import { WEDDING_DATA } from '@/utils/wedding-data';
 import { motion, useReducedMotion } from 'framer-motion';
 import { fadeInVariants, fadeUpLargeVariants, EASING, DURATIONS, STAGGER } from '@/lib/motion';
@@ -113,11 +114,16 @@ export function HeroSection({ initialGuest }: HeroSectionProps) {
 
             {/* 3. Context (Date/Location) */}
             <motion.div
-                className="font-sans text-sm md:text-base tracking-[0.3em] uppercase mb-16 text-accent-gold-soft flex flex-col gap-2"
+                className="font-sans text-sm md:text-base tracking-[0.3em] uppercase text-accent-gold-soft flex flex-col gap-2"
                 variants={fadeUpLargeVariants}
             >
                 <span>{details.date}</span>
                 <span className="text-xs opacity-80">{details.location}</span>
+            </motion.div>
+
+            {/* Countdown Timer */}
+            <motion.div variants={fadeInVariants} className="w-full flex justify-center">
+                <RoyalCountdown />
             </motion.div>
 
             {/* 4. CTA */}
