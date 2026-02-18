@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Optimize Playfair Display: Subset 'latin', Use 'swap', Preload Critical Weights Only
@@ -99,6 +100,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} antialiased bg-primary-dark text-ivory-light`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
