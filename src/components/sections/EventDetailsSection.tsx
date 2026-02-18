@@ -7,6 +7,8 @@ import { WEDDING_DATA } from '@/utils/wedding-data';
 import { StaggerContainer } from '@/components/motion/StaggerContainer';
 import { motion } from 'framer-motion';
 import { fadeUpCardVariants } from '@/lib/motion';
+import { MapPin, Calendar } from 'lucide-react';
+import { createGoogleCalendarUrl } from '@/lib/calendar';
 
 function EventCard({ event }: { event: typeof WEDDING_DATA['events'][0] }) {
   // Extract day and month for dramatic date display if possible, or just use the string
@@ -14,6 +16,11 @@ function EventCard({ event }: { event: typeof WEDDING_DATA['events'][0] }) {
   const month = dateParts[0] || '';
   const day = dateParts[1] || '';
   const year = dateParts[2] || '';
+
+  const googleCalendarUrl = createGoogleCalendarUrl(event);
+  // Construct a robust query: Venue + Main Location
+  const mapQuery = `${event.venue}, ${WEDDING_DATA.details.location}`;
+  const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
 
   return (
     <motion.div
@@ -54,9 +61,34 @@ function EventCard({ event }: { event: typeof WEDDING_DATA['events'][0] }) {
         </div>
 
         {/* Description */}
-        <p className="text-sm md:text-base text-white/60 font-serif italic leading-relaxed max-w-xs group-hover:text-white/80 transition-colors duration-500">
+        <p className="text-sm md:text-base text-white/60 font-serif italic leading-relaxed max-w-xs group-hover:text-white/80 transition-colors duration-500 mb-8">
           &ldquo;{event.description}&rdquo;
         </p>
+
+        {/* Actions Row */}
+        <div className="mt-auto flex items-center justify-center gap-4 opacity-70 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+          <a
+            href={googleMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 hover:border-accent-gold/50 bg-white/[0.02] hover:bg-accent-gold/10 transition-all duration-300 group/btn"
+            aria-label={`View ${event.venue} on Google Maps`}
+          >
+            <MapPin className="w-3.5 h-3.5 text-accent-gold-soft group-hover/btn:text-accent-gold transition-colors" />
+            <span className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-soft group-hover/btn:text-accent-gold font-medium">Map</span>
+          </a>
+
+          <a
+            href={googleCalendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 hover:border-accent-gold/50 bg-white/[0.02] hover:bg-accent-gold/10 transition-all duration-300 group/btn"
+            aria-label="Add to Google Calendar"
+          >
+            <Calendar className="w-3.5 h-3.5 text-accent-gold-soft group-hover/btn:text-accent-gold transition-colors" />
+            <span className="text-[10px] uppercase tracking-[0.2em] text-accent-gold-soft group-hover/btn:text-accent-gold font-medium">Calendar</span>
+          </a>
+        </div>
       </div>
     </motion.div>
   );
