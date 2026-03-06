@@ -72,3 +72,84 @@ h1 {
   background-color: var(--color-accent-gold);
   color: var(--color-primary-dark);
 }
+
+/*
+  ===========================================
+  DIGITAL TACTILITY & PHYSICAL PRESENCE
+  ===========================================
+*/
+
+/*
+  1. Texture: High-end Cardstock
+  Simulates a fine grain paper texture using a subtle noise SVG overlay.
+*/
+.texture-paper {
+  background-color: #1e1e1e; /* Deep, rich charcoal base */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  background-blend-mode: overlay;
+}
+
+/*
+  2. Letterpress / Emboss Effect
+  Creates a "pressed into paper" look for text using inner shadows.
+*/
+.text-emboss {
+  color: rgba(212, 175, 55, 0.9); /* Gold base */
+  text-shadow:
+    -1px -1px 1px rgba(0,0,0,0.5), /* Top-left shadow (inset feel) */
+    1px 1px 0px rgba(255,255,255,0.1); /* Bottom-right highlight (edge light) */
+}
+
+/*
+  3. Gold Foil Stamping
+  Simulates metallic foil that reflects light differently based on angle.
+*/
+.text-gold-foil {
+  background: linear-gradient(
+    135deg,
+    #BF953F 0%,
+    #FCF6BA 25%,
+    #B38728 50%,
+    #FBF5B7 75%,
+    #AA771C 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
+}
+
+.border-gold-foil {
+  border-image: linear-gradient(
+    135deg,
+    #BF953F 0%,
+    #FCF6BA 25%,
+    #B38728 50%,
+    #FBF5B7 75%,
+    #AA771C 100%
+  ) 1;
+}
+
+/*
+  4. Physical Depth (Shadow Stack)
+*/
+.shadow-physical {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 10px 15px -3px rgba(0, 0, 0, 0.4),
+    0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-physical-hover {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4),
+    0 25px 30px -5px rgba(0, 0, 0, 0.5),
+    0 40px 80px -10px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
